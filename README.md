@@ -1,4 +1,5 @@
-# USController
+![USController](https://raw.githubusercontent.com/ytur/USController/master/icon.png)
+<br/>
 More customizable <b>U</b>niversal <b>S</b>plit <b>Controller</b> for IOS device family.
 
 [![Platform](https://img.shields.io/cocoapods/p/USController.svg?style=flat)](https://cocoapods.org/pods/USController)
@@ -7,10 +8,6 @@ More customizable <b>U</b>niversal <b>S</b>plit <b>Controller</b> for IOS device
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
@@ -59,7 +56,7 @@ Then run `swift build` whenever you get prepared.
 
 To use this library in your project manually you may:  
 
-1. for Projects, just drag UniversalSplitController folder to the project tree
+1. for Projects, just drag Source folder to the project tree
 2. for Workspaces, include the whole USController.xcodeproj
 
 ## Usage
