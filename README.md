@@ -100,7 +100,7 @@ It removes the USController and views permanently from its parent controller and
 dataSource.disposeTheController()
 ```
 
-Default value is "false". If parameter takes true, detail controller will be immediately dissmissed from screen and visibility state will turning to "invisible". Detail controller won't be visible again by visibility or orientation changes until setting this parameter to "false".
+Forces the detail controller to hide if it's displayed and keep remained hidden despite toggle action.
 ```Swift
 dataSource.forceToHide = true
 ```
