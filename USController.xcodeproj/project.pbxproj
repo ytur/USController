@@ -28,6 +28,8 @@
 		38996733247C38FA009C37FC /* UniversalSplitController+CustomSwipeConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalSplitController+CustomSwipeConfiguration.swift"; sourceTree = "<group>"; };
 		38996734247C38FA009C37FC /* UniversalSplitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalSplitController.swift; sourceTree = "<group>"; };
 		38996735247C38FA009C37FC /* UniversalSplitController+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalSplitController+Helpers.swift"; sourceTree = "<group>"; };
+		3899686A247C674E009C37FC /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		3899686B247C674E009C37FC /* USController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = USController.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		38996716247C3598009C37FC = {
 			isa = PBXGroup;
 			children = (
+				3899686D247C6769009C37FC /* Deployment */,
 				38996722247C3598009C37FC /* Source */,
 				38996721247C3598009C37FC /* Products */,
 			);
@@ -95,6 +98,15 @@
 				38996730247C38E9009C37FC /* Controller */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		3899686D247C6769009C37FC /* Deployment */ = {
+			isa = PBXGroup;
+			children = (
+				3899686A247C674E009C37FC /* Package.swift */,
+				3899686B247C674E009C37FC /* USController.podspec */,
+			);
+			name = Deployment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
