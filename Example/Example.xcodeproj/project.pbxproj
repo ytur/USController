@@ -1,0 +1,947 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3899674A247C5EEB009C37FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996749247C5EEB009C37FC /* AppDelegate.swift */; };
+		3899674E247C5EEB009C37FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899674D247C5EEB009C37FC /* ViewController.swift */; };
+		38996751247C5EEB009C37FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3899674F247C5EEB009C37FC /* Main.storyboard */; };
+		38996753247C5EED009C37FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38996752247C5EED009C37FC /* Assets.xcassets */; };
+		38996756247C5EED009C37FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38996754247C5EED009C37FC /* LaunchScreen.storyboard */; };
+		38996766247C6008009C37FC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996765247C6008009C37FC /* UIImage+Extension.swift */; };
+		3899676B247C604F009C37FC /* ParrotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899676A247C604F009C37FC /* ParrotModel.swift */; };
+		3899676E247C6065009C37FC /* ParrotDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899676C247C6065009C37FC /* ParrotDetailController.swift */; };
+		3899676F247C6065009C37FC /* ParrotDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899676D247C6065009C37FC /* ParrotDetailViewModel.swift */; };
+		38996773247C607B009C37FC /* ParrotSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996771247C607B009C37FC /* ParrotSelectionController.swift */; };
+		38996774247C607B009C37FC /* ParrotSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996772247C607B009C37FC /* ParrotSelectionViewModel.swift */; };
+		38996776247C6082009C37FC /* ParrotSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996775247C6082009C37FC /* ParrotSelectionTableViewCell.swift */; };
+		389967F1247C618A009C37FC /* laptop_parrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996778247C617D009C37FC /* laptop_parrot.gif */; };
+		389967F2247C618A009C37FC /* mustacheparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996779247C617D009C37FC /* mustacheparrot.gif */; };
+		389967F3247C618A009C37FC /* reverseparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899677A247C617D009C37FC /* reverseparrot.gif */; };
+		389967F4247C618A009C37FC /* portalorangeparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899677B247C617D009C37FC /* portalorangeparrot.gif */; };
+		389967F5247C618A009C37FC /* spyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899677C247C617D009C37FC /* spyparrot.gif */; };
+		389967F6247C618A009C37FC /* gothparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899677D247C617D009C37FC /* gothparrot.gif */; };
+		389967F7247C618A009C37FC /* footballparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899677E247C617D009C37FC /* footballparrot.gif */; };
+		389967F8247C618A009C37FC /* marshmallowparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899677F247C617D009C37FC /* marshmallowparrot.gif */; };
+		389967F9247C618A009C37FC /* jediparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996780247C617D009C37FC /* jediparrot.gif */; };
+		389967FA247C618A009C37FC /* reverseportalblueparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996781247C617D009C37FC /* reverseportalblueparrot.gif */; };
+		389967FB247C618A009C37FC /* congaparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996782247C617D009C37FC /* congaparrot.gif */; };
+		389967FC247C618A009C37FC /* shortparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996783247C617D009C37FC /* shortparrot.gif */; };
+		389967FD247C618A009C37FC /* boredparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996784247C617D009C37FC /* boredparrot.gif */; };
+		389967FE247C618A009C37FC /* headingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996785247C617E009C37FC /* headingparrot.gif */; };
+		389967FF247C618A009C37FC /* christmasparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996786247C617E009C37FC /* christmasparrot.gif */; };
+		38996800247C618A009C37FC /* tpparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996787247C617E009C37FC /* tpparrot.gif */; };
+		38996801247C618A009C37FC /* sushiparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996788247C617E009C37FC /* sushiparrot.gif */; };
+		38996802247C618A009C37FC /* originalparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996789247C617E009C37FC /* originalparrot.gif */; };
+		38996803247C618A009C37FC /* michaeljacksonparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899678A247C617E009C37FC /* michaeljacksonparrot.gif */; };
+		38996804247C618A009C37FC /* rubyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899678B247C617E009C37FC /* rubyparrot.gif */; };
+		38996805247C618A009C37FC /* confusedparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899678C247C617E009C37FC /* confusedparrot.gif */; };
+		38996806247C618A009C37FC /* sadparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899678D247C617E009C37FC /* sadparrot.gif */; };
+		38996807247C618A009C37FC /* tiedyeparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899678E247C617E009C37FC /* tiedyeparrot.gif */; };
+		38996808247C618A009C37FC /* moonparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899678F247C617F009C37FC /* moonparrot.gif */; };
+		38996809247C618A009C37FC /* moonwalkingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996790247C617F009C37FC /* moonwalkingparrot.gif */; };
+		3899680A247C618A009C37FC /* revolutionparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996791247C617F009C37FC /* revolutionparrot.gif */; };
+		3899680B247C618A009C37FC /* slowparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996792247C617F009C37FC /* slowparrot.gif */; };
+		3899680C247C618A009C37FC /* copparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996793247C617F009C37FC /* copparrot.gif */; };
+		3899680D247C618A009C37FC /* bootlegparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996794247C617F009C37FC /* bootlegparrot.gif */; };
+		3899680E247C618A009C37FC /* illuminatiparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996795247C617F009C37FC /* illuminatiparrot.gif */; };
+		3899680F247C618A009C37FC /* whitewalkerparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996796247C617F009C37FC /* whitewalkerparrot.gif */; };
+		38996810247C618A009C37FC /* angryparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996797247C617F009C37FC /* angryparrot.gif */; };
+		38996811247C618A009C37FC /* bobaparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996798247C6180009C37FC /* bobaparrot.gif */; };
+		38996812247C618A009C37FC /* mardigrasparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38996799247C6180009C37FC /* mardigrasparrot.gif */; };
+		38996813247C618A009C37FC /* invisibleparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899679A247C6180009C37FC /* invisibleparrot.gif */; };
+		38996814247C618A009C37FC /* flyingmoneyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899679B247C6180009C37FC /* flyingmoneyparrot.gif */; };
+		38996815247C618A009C37FC /* grouchoparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899679C247C6180009C37FC /* grouchoparrot.gif */; };
+		38996816247C618A009C37FC /* pirateparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899679D247C6180009C37FC /* pirateparrot.gif */; };
+		38996817247C618A009C37FC /* calvinist_parrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899679E247C6180009C37FC /* calvinist_parrot.gif */; };
+		38996818247C618A009C37FC /* aussiereversecongaparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3899679F247C6180009C37FC /* aussiereversecongaparrot.gif */; };
+		38996819247C618A009C37FC /* dadparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A0247C6180009C37FC /* dadparrot.gif */; };
+		3899681A247C618A009C37FC /* redhatparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A1247C6180009C37FC /* redhatparrot.gif */; };
+		3899681B247C618A009C37FC /* bluntparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A2247C6181009C37FC /* bluntparrot.gif */; };
+		3899681C247C618A009C37FC /* donutparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A3247C6181009C37FC /* donutparrot.gif */; };
+		3899681D247C618A009C37FC /* everythingsfineparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A4247C6181009C37FC /* everythingsfineparrot.gif */; };
+		3899681E247C618A009C37FC /* chicoparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A5247C6181009C37FC /* chicoparrot.gif */; };
+		3899681F247C618A009C37FC /* popcornparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A6247C6181009C37FC /* popcornparrot.gif */; };
+		38996820247C618A009C37FC /* brazilianfanparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A7247C6181009C37FC /* brazilianfanparrot.gif */; };
+		38996821247C618A009C37FC /* tennisparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A8247C6181009C37FC /* tennisparrot.gif */; };
+		38996822247C618A009C37FC /* sintparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967A9247C6181009C37FC /* sintparrot.gif */; };
+		38996823247C618A009C37FC /* dealwithitnowparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967AA247C6181009C37FC /* dealwithitnowparrot.gif */; };
+		38996824247C618A009C37FC /* brazilianplayerparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967AB247C6181009C37FC /* brazilianplayerparrot.gif */; };
+		38996825247C618A009C37FC /* ultrafastparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967AC247C6181009C37FC /* ultrafastparrot.gif */; };
+		38996826247C618A009C37FC /* birthdaypartyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967AD247C6181009C37FC /* birthdaypartyparrot.gif */; };
+		38996827247C618A009C37FC /* picassoparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967AE247C6182009C37FC /* picassoparrot.gif */; };
+		38996828247C618A009C37FC /* flowerparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967AF247C6182009C37FC /* flowerparrot.gif */; };
+		38996829247C618B009C37FC /* shuffleparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B0247C6182009C37FC /* shuffleparrot.gif */; };
+		3899682A247C618B009C37FC /* harpoparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B1247C6182009C37FC /* harpoparrot.gif */; };
+		3899682B247C618B009C37FC /* bunnyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B2247C6182009C37FC /* bunnyparrot.gif */; };
+		3899682C247C618B009C37FC /* wfhparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B3247C6182009C37FC /* wfhparrot.gif */; };
+		3899682D247C618B009C37FC /* angelparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B4247C6182009C37FC /* angelparrot.gif */; };
+		3899682E247C618B009C37FC /* vikingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B5247C6182009C37FC /* vikingparrot.gif */; };
+		3899682F247C618B009C37FC /* reverseportalorangeparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B6247C6182009C37FC /* reverseportalorangeparrot.gif */; };
+		38996830247C618B009C37FC /* 60fpsparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B7247C6182009C37FC /* 60fpsparrot.gif */; };
+		38996831247C618B009C37FC /* redenvelopeparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B8247C6182009C37FC /* redenvelopeparrot.gif */; };
+		38996832247C618B009C37FC /* bikerparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967B9247C6183009C37FC /* bikerparrot.gif */; };
+		38996833247C618B009C37FC /* horizontalparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967BA247C6183009C37FC /* horizontalparrot.gif */; };
+		38996834247C618B009C37FC /* backwardsparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967BB247C6183009C37FC /* backwardsparrot.gif */; };
+		38996835247C618B009C37FC /* levitationparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967BC247C6183009C37FC /* levitationparrot.gif */; };
+		38996836247C618B009C37FC /* portalblueparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967BD247C6183009C37FC /* portalblueparrot.gif */; };
+		38996837247C618B009C37FC /* fastparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967BE247C6183009C37FC /* fastparrot.gif */; };
+		38996838247C618B009C37FC /* hypnoparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967BF247C6183009C37FC /* hypnoparrot.gif */; };
+		38996839247C618B009C37FC /* norwegianblueparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C0247C6183009C37FC /* norwegianblueparrot.gif */; };
+		3899683A247C618B009C37FC /* congapartyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C1247C6183009C37FC /* congapartyparrot.gif */; };
+		3899683B247C618B009C37FC /* opensourceparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C2247C6183009C37FC /* opensourceparrot.gif */; };
+		3899683C247C618B009C37FC /* spinningparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C3247C6183009C37FC /* spinningparrot.gif */; };
+		3899683D247C618B009C37FC /* hypnoparrotdark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C4247C6184009C37FC /* hypnoparrotdark.gif */; };
+		3899683E247C618B009C37FC /* discoparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C5247C6184009C37FC /* discoparrot.gif */; };
+		3899683F247C618B009C37FC /* sithparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C6247C6184009C37FC /* sithparrot.gif */; };
+		38996840247C618B009C37FC /* darkmodeparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C7247C6184009C37FC /* darkmodeparrot.gif */; };
+		38996841247C618B009C37FC /* covid19parrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C8247C6184009C37FC /* covid19parrot.gif */; };
+		38996842247C618B009C37FC /* aussieparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967C9247C6184009C37FC /* aussieparrot.gif */; };
+		38996843247C618B009C37FC /* hardhatparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967CA247C6184009C37FC /* hardhatparrot.gif */; };
+		38996844247C618B009C37FC /* ceilingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967CB247C6184009C37FC /* ceilingparrot.gif */; };
+		38996845247C618B009C37FC /* inverseparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967CC247C6184009C37FC /* inverseparrot.gif */; };
+		38996846247C618B009C37FC /* sassyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967CD247C6184009C37FC /* sassyparrot.gif */; };
+		38996847247C618B009C37FC /* bouncingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967CE247C6184009C37FC /* bouncingparrot.gif */; };
+		38996848247C618B009C37FC /* stableparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967CF247C6185009C37FC /* stableparrot.gif */; };
+		38996849247C618B009C37FC /* verticalparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D0247C6185009C37FC /* verticalparrot.gif */; };
+		3899684A247C618B009C37FC /* wineparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D1247C6185009C37FC /* wineparrot.gif */; };
+		3899684B247C618B009C37FC /* thumbsupparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D2247C6185009C37FC /* thumbsupparrot.gif */; };
+		3899684C247C618B009C37FC /* pumpkinparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D3247C6185009C37FC /* pumpkinparrot.gif */; };
+		3899684D247C618B009C37FC /* innersourceparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D4247C6185009C37FC /* innersourceparrot.gif */; };
+		3899684E247C618B009C37FC /* headsetparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D5247C6185009C37FC /* headsetparrot.gif */; };
+		3899684F247C618B009C37FC /* frenchparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D6247C6185009C37FC /* frenchparrot.gif */; };
+		38996850247C618B009C37FC /* phparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D7247C6185009C37FC /* phparrot.gif */; };
+		38996851247C618B009C37FC /* transparront.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D8247C6186009C37FC /* transparront.gif */; };
+		38996852247C618B009C37FC /* rythmicalparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967D9247C6186009C37FC /* rythmicalparrot.gif */; };
+		38996853247C618B009C37FC /* sherlockholmesparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967DA247C6186009C37FC /* sherlockholmesparrot.gif */; };
+		38996854247C618B009C37FC /* hypnoparrotlight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967DB247C6186009C37FC /* hypnoparrotlight.gif */; };
+		38996855247C618B009C37FC /* githubparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967DC247C6186009C37FC /* githubparrot.gif */; };
+		38996856247C618B009C37FC /* meldparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967DD247C6186009C37FC /* meldparrot.gif */; };
+		38996857247C618B009C37FC /* middleparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967DE247C6186009C37FC /* middleparrot.gif */; };
+		38996858247C618B009C37FC /* sleepingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967DF247C6186009C37FC /* sleepingparrot.gif */; };
+		38996859247C618B009C37FC /* parrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E0247C6186009C37FC /* parrot.gif */; };
+		3899685A247C618B009C37FC /* dealwithitparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E1247C6187009C37FC /* dealwithitparrot.gif */; };
+		3899685B247C618B009C37FC /* twinsparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E2247C6187009C37FC /* twinsparrot.gif */; };
+		3899685C247C618B009C37FC /* beerparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E3247C6188009C37FC /* beerparrot.gif */; };
+		3899685D247C618B009C37FC /* maracasparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E4247C6188009C37FC /* maracasparrot.gif */; };
+		3899685E247C618B009C37FC /* aussiecongaparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E5247C6188009C37FC /* aussiecongaparrot.gif */; };
+		3899685F247C618B009C37FC /* partyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E6247C6188009C37FC /* partyparrot.gif */; };
+		38996860247C618B009C37FC /* scienceparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E7247C6189009C37FC /* scienceparrot.gif */; };
+		38996861247C618B009C37FC /* yosemitesamparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E8247C6189009C37FC /* yosemitesamparrot.gif */; };
+		38996862247C618B009C37FC /* reversecongaparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967E9247C6189009C37FC /* reversecongaparrot.gif */; };
+		38996863247C618B009C37FC /* wendyparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967EA247C6189009C37FC /* wendyparrot.gif */; };
+		38996864247C618B009C37FC /* beretparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967EB247C6189009C37FC /* beretparrot.gif */; };
+		38996865247C618B009C37FC /* gentlemanparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967EC247C618A009C37FC /* gentlemanparrot.gif */; };
+		38996866247C618B009C37FC /* evilparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967ED247C618A009C37FC /* evilparrot.gif */; };
+		38996867247C618B009C37FC /* parrotnotfound.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967EE247C618A009C37FC /* parrotnotfound.gif */; };
+		38996868247C618B009C37FC /* pingpongparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967EF247C618A009C37FC /* pingpongparrot.gif */; };
+		38996869247C618B009C37FC /* headbangingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967F0247C618A009C37FC /* headbangingparrot.gif */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		38996746247C5EEB009C37FC /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38996749247C5EEB009C37FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3899674D247C5EEB009C37FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		38996750247C5EEB009C37FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		38996752247C5EED009C37FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38996755247C5EED009C37FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		38996757247C5EED009C37FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38996765247C6008009C37FC /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3899676A247C604F009C37FC /* ParrotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotModel.swift; sourceTree = "<group>"; };
+		3899676C247C6065009C37FC /* ParrotDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParrotDetailController.swift; sourceTree = "<group>"; };
+		3899676D247C6065009C37FC /* ParrotDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParrotDetailViewModel.swift; sourceTree = "<group>"; };
+		38996771247C607B009C37FC /* ParrotSelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParrotSelectionController.swift; sourceTree = "<group>"; };
+		38996772247C607B009C37FC /* ParrotSelectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParrotSelectionViewModel.swift; sourceTree = "<group>"; };
+		38996775247C6082009C37FC /* ParrotSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParrotSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		38996778247C617D009C37FC /* laptop_parrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = laptop_parrot.gif; sourceTree = "<group>"; };
+		38996779247C617D009C37FC /* mustacheparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = mustacheparrot.gif; sourceTree = "<group>"; };
+		3899677A247C617D009C37FC /* reverseparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reverseparrot.gif; sourceTree = "<group>"; };
+		3899677B247C617D009C37FC /* portalorangeparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = portalorangeparrot.gif; sourceTree = "<group>"; };
+		3899677C247C617D009C37FC /* spyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spyparrot.gif; sourceTree = "<group>"; };
+		3899677D247C617D009C37FC /* gothparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gothparrot.gif; sourceTree = "<group>"; };
+		3899677E247C617D009C37FC /* footballparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = footballparrot.gif; sourceTree = "<group>"; };
+		3899677F247C617D009C37FC /* marshmallowparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marshmallowparrot.gif; sourceTree = "<group>"; };
+		38996780247C617D009C37FC /* jediparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = jediparrot.gif; sourceTree = "<group>"; };
+		38996781247C617D009C37FC /* reverseportalblueparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reverseportalblueparrot.gif; sourceTree = "<group>"; };
+		38996782247C617D009C37FC /* congaparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = congaparrot.gif; sourceTree = "<group>"; };
+		38996783247C617D009C37FC /* shortparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shortparrot.gif; sourceTree = "<group>"; };
+		38996784247C617D009C37FC /* boredparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = boredparrot.gif; sourceTree = "<group>"; };
+		38996785247C617E009C37FC /* headingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = headingparrot.gif; sourceTree = "<group>"; };
+		38996786247C617E009C37FC /* christmasparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = christmasparrot.gif; sourceTree = "<group>"; };
+		38996787247C617E009C37FC /* tpparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tpparrot.gif; sourceTree = "<group>"; };
+		38996788247C617E009C37FC /* sushiparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sushiparrot.gif; sourceTree = "<group>"; };
+		38996789247C617E009C37FC /* originalparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = originalparrot.gif; sourceTree = "<group>"; };
+		3899678A247C617E009C37FC /* michaeljacksonparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = michaeljacksonparrot.gif; sourceTree = "<group>"; };
+		3899678B247C617E009C37FC /* rubyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rubyparrot.gif; sourceTree = "<group>"; };
+		3899678C247C617E009C37FC /* confusedparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = confusedparrot.gif; sourceTree = "<group>"; };
+		3899678D247C617E009C37FC /* sadparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sadparrot.gif; sourceTree = "<group>"; };
+		3899678E247C617E009C37FC /* tiedyeparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tiedyeparrot.gif; sourceTree = "<group>"; };
+		3899678F247C617F009C37FC /* moonparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = moonparrot.gif; sourceTree = "<group>"; };
+		38996790247C617F009C37FC /* moonwalkingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = moonwalkingparrot.gif; sourceTree = "<group>"; };
+		38996791247C617F009C37FC /* revolutionparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = revolutionparrot.gif; sourceTree = "<group>"; };
+		38996792247C617F009C37FC /* slowparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = slowparrot.gif; sourceTree = "<group>"; };
+		38996793247C617F009C37FC /* copparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = copparrot.gif; sourceTree = "<group>"; };
+		38996794247C617F009C37FC /* bootlegparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bootlegparrot.gif; sourceTree = "<group>"; };
+		38996795247C617F009C37FC /* illuminatiparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = illuminatiparrot.gif; sourceTree = "<group>"; };
+		38996796247C617F009C37FC /* whitewalkerparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = whitewalkerparrot.gif; sourceTree = "<group>"; };
+		38996797247C617F009C37FC /* angryparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = angryparrot.gif; sourceTree = "<group>"; };
+		38996798247C6180009C37FC /* bobaparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bobaparrot.gif; sourceTree = "<group>"; };
+		38996799247C6180009C37FC /* mardigrasparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = mardigrasparrot.gif; sourceTree = "<group>"; };
+		3899679A247C6180009C37FC /* invisibleparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = invisibleparrot.gif; sourceTree = "<group>"; };
+		3899679B247C6180009C37FC /* flyingmoneyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = flyingmoneyparrot.gif; sourceTree = "<group>"; };
+		3899679C247C6180009C37FC /* grouchoparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = grouchoparrot.gif; sourceTree = "<group>"; };
+		3899679D247C6180009C37FC /* pirateparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pirateparrot.gif; sourceTree = "<group>"; };
+		3899679E247C6180009C37FC /* calvinist_parrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = calvinist_parrot.gif; sourceTree = "<group>"; };
+		3899679F247C6180009C37FC /* aussiereversecongaparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = aussiereversecongaparrot.gif; sourceTree = "<group>"; };
+		389967A0247C6180009C37FC /* dadparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dadparrot.gif; sourceTree = "<group>"; };
+		389967A1247C6180009C37FC /* redhatparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = redhatparrot.gif; sourceTree = "<group>"; };
+		389967A2247C6181009C37FC /* bluntparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bluntparrot.gif; sourceTree = "<group>"; };
+		389967A3247C6181009C37FC /* donutparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = donutparrot.gif; sourceTree = "<group>"; };
+		389967A4247C6181009C37FC /* everythingsfineparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = everythingsfineparrot.gif; sourceTree = "<group>"; };
+		389967A5247C6181009C37FC /* chicoparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chicoparrot.gif; sourceTree = "<group>"; };
+		389967A6247C6181009C37FC /* popcornparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = popcornparrot.gif; sourceTree = "<group>"; };
+		389967A7247C6181009C37FC /* brazilianfanparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = brazilianfanparrot.gif; sourceTree = "<group>"; };
+		389967A8247C6181009C37FC /* tennisparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tennisparrot.gif; sourceTree = "<group>"; };
+		389967A9247C6181009C37FC /* sintparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sintparrot.gif; sourceTree = "<group>"; };
+		389967AA247C6181009C37FC /* dealwithitnowparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dealwithitnowparrot.gif; sourceTree = "<group>"; };
+		389967AB247C6181009C37FC /* brazilianplayerparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = brazilianplayerparrot.gif; sourceTree = "<group>"; };
+		389967AC247C6181009C37FC /* ultrafastparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ultrafastparrot.gif; sourceTree = "<group>"; };
+		389967AD247C6181009C37FC /* birthdaypartyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = birthdaypartyparrot.gif; sourceTree = "<group>"; };
+		389967AE247C6182009C37FC /* picassoparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = picassoparrot.gif; sourceTree = "<group>"; };
+		389967AF247C6182009C37FC /* flowerparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = flowerparrot.gif; sourceTree = "<group>"; };
+		389967B0247C6182009C37FC /* shuffleparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shuffleparrot.gif; sourceTree = "<group>"; };
+		389967B1247C6182009C37FC /* harpoparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = harpoparrot.gif; sourceTree = "<group>"; };
+		389967B2247C6182009C37FC /* bunnyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bunnyparrot.gif; sourceTree = "<group>"; };
+		389967B3247C6182009C37FC /* wfhparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wfhparrot.gif; sourceTree = "<group>"; };
+		389967B4247C6182009C37FC /* angelparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = angelparrot.gif; sourceTree = "<group>"; };
+		389967B5247C6182009C37FC /* vikingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = vikingparrot.gif; sourceTree = "<group>"; };
+		389967B6247C6182009C37FC /* reverseportalorangeparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reverseportalorangeparrot.gif; sourceTree = "<group>"; };
+		389967B7247C6182009C37FC /* 60fpsparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 60fpsparrot.gif; sourceTree = "<group>"; };
+		389967B8247C6182009C37FC /* redenvelopeparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = redenvelopeparrot.gif; sourceTree = "<group>"; };
+		389967B9247C6183009C37FC /* bikerparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bikerparrot.gif; sourceTree = "<group>"; };
+		389967BA247C6183009C37FC /* horizontalparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = horizontalparrot.gif; sourceTree = "<group>"; };
+		389967BB247C6183009C37FC /* backwardsparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = backwardsparrot.gif; sourceTree = "<group>"; };
+		389967BC247C6183009C37FC /* levitationparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = levitationparrot.gif; sourceTree = "<group>"; };
+		389967BD247C6183009C37FC /* portalblueparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = portalblueparrot.gif; sourceTree = "<group>"; };
+		389967BE247C6183009C37FC /* fastparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fastparrot.gif; sourceTree = "<group>"; };
+		389967BF247C6183009C37FC /* hypnoparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hypnoparrot.gif; sourceTree = "<group>"; };
+		389967C0247C6183009C37FC /* norwegianblueparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = norwegianblueparrot.gif; sourceTree = "<group>"; };
+		389967C1247C6183009C37FC /* congapartyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = congapartyparrot.gif; sourceTree = "<group>"; };
+		389967C2247C6183009C37FC /* opensourceparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = opensourceparrot.gif; sourceTree = "<group>"; };
+		389967C3247C6183009C37FC /* spinningparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spinningparrot.gif; sourceTree = "<group>"; };
+		389967C4247C6184009C37FC /* hypnoparrotdark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hypnoparrotdark.gif; sourceTree = "<group>"; };
+		389967C5247C6184009C37FC /* discoparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = discoparrot.gif; sourceTree = "<group>"; };
+		389967C6247C6184009C37FC /* sithparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sithparrot.gif; sourceTree = "<group>"; };
+		389967C7247C6184009C37FC /* darkmodeparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = darkmodeparrot.gif; sourceTree = "<group>"; };
+		389967C8247C6184009C37FC /* covid19parrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = covid19parrot.gif; sourceTree = "<group>"; };
+		389967C9247C6184009C37FC /* aussieparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = aussieparrot.gif; sourceTree = "<group>"; };
+		389967CA247C6184009C37FC /* hardhatparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hardhatparrot.gif; sourceTree = "<group>"; };
+		389967CB247C6184009C37FC /* ceilingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ceilingparrot.gif; sourceTree = "<group>"; };
+		389967CC247C6184009C37FC /* inverseparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = inverseparrot.gif; sourceTree = "<group>"; };
+		389967CD247C6184009C37FC /* sassyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sassyparrot.gif; sourceTree = "<group>"; };
+		389967CE247C6184009C37FC /* bouncingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bouncingparrot.gif; sourceTree = "<group>"; };
+		389967CF247C6185009C37FC /* stableparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = stableparrot.gif; sourceTree = "<group>"; };
+		389967D0247C6185009C37FC /* verticalparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = verticalparrot.gif; sourceTree = "<group>"; };
+		389967D1247C6185009C37FC /* wineparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wineparrot.gif; sourceTree = "<group>"; };
+		389967D2247C6185009C37FC /* thumbsupparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = thumbsupparrot.gif; sourceTree = "<group>"; };
+		389967D3247C6185009C37FC /* pumpkinparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pumpkinparrot.gif; sourceTree = "<group>"; };
+		389967D4247C6185009C37FC /* innersourceparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = innersourceparrot.gif; sourceTree = "<group>"; };
+		389967D5247C6185009C37FC /* headsetparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = headsetparrot.gif; sourceTree = "<group>"; };
+		389967D6247C6185009C37FC /* frenchparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frenchparrot.gif; sourceTree = "<group>"; };
+		389967D7247C6185009C37FC /* phparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = phparrot.gif; sourceTree = "<group>"; };
+		389967D8247C6186009C37FC /* transparront.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = transparront.gif; sourceTree = "<group>"; };
+		389967D9247C6186009C37FC /* rythmicalparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rythmicalparrot.gif; sourceTree = "<group>"; };
+		389967DA247C6186009C37FC /* sherlockholmesparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sherlockholmesparrot.gif; sourceTree = "<group>"; };
+		389967DB247C6186009C37FC /* hypnoparrotlight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hypnoparrotlight.gif; sourceTree = "<group>"; };
+		389967DC247C6186009C37FC /* githubparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = githubparrot.gif; sourceTree = "<group>"; };
+		389967DD247C6186009C37FC /* meldparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = meldparrot.gif; sourceTree = "<group>"; };
+		389967DE247C6186009C37FC /* middleparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = middleparrot.gif; sourceTree = "<group>"; };
+		389967DF247C6186009C37FC /* sleepingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sleepingparrot.gif; sourceTree = "<group>"; };
+		389967E0247C6186009C37FC /* parrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = parrot.gif; sourceTree = "<group>"; };
+		389967E1247C6187009C37FC /* dealwithitparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dealwithitparrot.gif; sourceTree = "<group>"; };
+		389967E2247C6187009C37FC /* twinsparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = twinsparrot.gif; sourceTree = "<group>"; };
+		389967E3247C6188009C37FC /* beerparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = beerparrot.gif; sourceTree = "<group>"; };
+		389967E4247C6188009C37FC /* maracasparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maracasparrot.gif; sourceTree = "<group>"; };
+		389967E5247C6188009C37FC /* aussiecongaparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = aussiecongaparrot.gif; sourceTree = "<group>"; };
+		389967E6247C6188009C37FC /* partyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = partyparrot.gif; sourceTree = "<group>"; };
+		389967E7247C6189009C37FC /* scienceparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scienceparrot.gif; sourceTree = "<group>"; };
+		389967E8247C6189009C37FC /* yosemitesamparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yosemitesamparrot.gif; sourceTree = "<group>"; };
+		389967E9247C6189009C37FC /* reversecongaparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reversecongaparrot.gif; sourceTree = "<group>"; };
+		389967EA247C6189009C37FC /* wendyparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wendyparrot.gif; sourceTree = "<group>"; };
+		389967EB247C6189009C37FC /* beretparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = beretparrot.gif; sourceTree = "<group>"; };
+		389967EC247C618A009C37FC /* gentlemanparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gentlemanparrot.gif; sourceTree = "<group>"; };
+		389967ED247C618A009C37FC /* evilparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = evilparrot.gif; sourceTree = "<group>"; };
+		389967EE247C618A009C37FC /* parrotnotfound.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = parrotnotfound.gif; sourceTree = "<group>"; };
+		389967EF247C618A009C37FC /* pingpongparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pingpongparrot.gif; sourceTree = "<group>"; };
+		389967F0247C618A009C37FC /* headbangingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = headbangingparrot.gif; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38996743247C5EEB009C37FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3899673D247C5EEB009C37FC = {
+			isa = PBXGroup;
+			children = (
+				38996748247C5EEB009C37FC /* Example */,
+				38996747247C5EEB009C37FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		38996747247C5EEB009C37FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38996746247C5EEB009C37FC /* Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38996748247C5EEB009C37FC /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				38996749247C5EEB009C37FC /* AppDelegate.swift */,
+				3899674D247C5EEB009C37FC /* ViewController.swift */,
+				38996760247C5F93009C37FC /* Scenes */,
+				38996761247C5F99009C37FC /* Storyboards */,
+				38996762247C5FA2009C37FC /* Extensions */,
+				38996763247C5FAD009C37FC /* Resources */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		38996760247C5F93009C37FC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				38996767247C6022009C37FC /* Model */,
+				38996768247C602B009C37FC /* ParrotDetailScene */,
+				38996769247C6032009C37FC /* ParrotSelectionScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		38996761247C5F99009C37FC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3899674F247C5EEB009C37FC /* Main.storyboard */,
+				38996754247C5EED009C37FC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		38996762247C5FA2009C37FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				38996765247C6008009C37FC /* UIImage+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38996763247C5FAD009C37FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				38996764247C5FF7009C37FC /* Parrots */,
+				38996752247C5EED009C37FC /* Assets.xcassets */,
+				38996757247C5EED009C37FC /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		38996764247C5FF7009C37FC /* Parrots */ = {
+			isa = PBXGroup;
+			children = (
+				389967B7247C6182009C37FC /* 60fpsparrot.gif */,
+				389967B4247C6182009C37FC /* angelparrot.gif */,
+				38996797247C617F009C37FC /* angryparrot.gif */,
+				389967E5247C6188009C37FC /* aussiecongaparrot.gif */,
+				389967C9247C6184009C37FC /* aussieparrot.gif */,
+				3899679F247C6180009C37FC /* aussiereversecongaparrot.gif */,
+				389967BB247C6183009C37FC /* backwardsparrot.gif */,
+				389967E3247C6188009C37FC /* beerparrot.gif */,
+				389967EB247C6189009C37FC /* beretparrot.gif */,
+				389967B9247C6183009C37FC /* bikerparrot.gif */,
+				389967AD247C6181009C37FC /* birthdaypartyparrot.gif */,
+				389967A2247C6181009C37FC /* bluntparrot.gif */,
+				38996798247C6180009C37FC /* bobaparrot.gif */,
+				38996794247C617F009C37FC /* bootlegparrot.gif */,
+				38996784247C617D009C37FC /* boredparrot.gif */,
+				389967CE247C6184009C37FC /* bouncingparrot.gif */,
+				389967A7247C6181009C37FC /* brazilianfanparrot.gif */,
+				389967AB247C6181009C37FC /* brazilianplayerparrot.gif */,
+				389967B2247C6182009C37FC /* bunnyparrot.gif */,
+				3899679E247C6180009C37FC /* calvinist_parrot.gif */,
+				389967CB247C6184009C37FC /* ceilingparrot.gif */,
+				389967A5247C6181009C37FC /* chicoparrot.gif */,
+				38996786247C617E009C37FC /* christmasparrot.gif */,
+				3899678C247C617E009C37FC /* confusedparrot.gif */,
+				38996782247C617D009C37FC /* congaparrot.gif */,
+				389967C1247C6183009C37FC /* congapartyparrot.gif */,
+				38996793247C617F009C37FC /* copparrot.gif */,
+				389967C8247C6184009C37FC /* covid19parrot.gif */,
+				389967A0247C6180009C37FC /* dadparrot.gif */,
+				389967C7247C6184009C37FC /* darkmodeparrot.gif */,
+				389967AA247C6181009C37FC /* dealwithitnowparrot.gif */,
+				389967E1247C6187009C37FC /* dealwithitparrot.gif */,
+				389967C5247C6184009C37FC /* discoparrot.gif */,
+				389967A3247C6181009C37FC /* donutparrot.gif */,
+				389967A4247C6181009C37FC /* everythingsfineparrot.gif */,
+				389967ED247C618A009C37FC /* evilparrot.gif */,
+				389967BE247C6183009C37FC /* fastparrot.gif */,
+				389967AF247C6182009C37FC /* flowerparrot.gif */,
+				3899679B247C6180009C37FC /* flyingmoneyparrot.gif */,
+				3899677E247C617D009C37FC /* footballparrot.gif */,
+				389967D6247C6185009C37FC /* frenchparrot.gif */,
+				389967EC247C618A009C37FC /* gentlemanparrot.gif */,
+				389967DC247C6186009C37FC /* githubparrot.gif */,
+				3899677D247C617D009C37FC /* gothparrot.gif */,
+				3899679C247C6180009C37FC /* grouchoparrot.gif */,
+				389967CA247C6184009C37FC /* hardhatparrot.gif */,
+				389967B1247C6182009C37FC /* harpoparrot.gif */,
+				389967F0247C618A009C37FC /* headbangingparrot.gif */,
+				38996785247C617E009C37FC /* headingparrot.gif */,
+				389967D5247C6185009C37FC /* headsetparrot.gif */,
+				389967BA247C6183009C37FC /* horizontalparrot.gif */,
+				389967BF247C6183009C37FC /* hypnoparrot.gif */,
+				389967C4247C6184009C37FC /* hypnoparrotdark.gif */,
+				389967DB247C6186009C37FC /* hypnoparrotlight.gif */,
+				38996795247C617F009C37FC /* illuminatiparrot.gif */,
+				389967D4247C6185009C37FC /* innersourceparrot.gif */,
+				389967CC247C6184009C37FC /* inverseparrot.gif */,
+				3899679A247C6180009C37FC /* invisibleparrot.gif */,
+				38996780247C617D009C37FC /* jediparrot.gif */,
+				38996778247C617D009C37FC /* laptop_parrot.gif */,
+				389967BC247C6183009C37FC /* levitationparrot.gif */,
+				389967E4247C6188009C37FC /* maracasparrot.gif */,
+				38996799247C6180009C37FC /* mardigrasparrot.gif */,
+				3899677F247C617D009C37FC /* marshmallowparrot.gif */,
+				389967DD247C6186009C37FC /* meldparrot.gif */,
+				3899678A247C617E009C37FC /* michaeljacksonparrot.gif */,
+				389967DE247C6186009C37FC /* middleparrot.gif */,
+				3899678F247C617F009C37FC /* moonparrot.gif */,
+				38996790247C617F009C37FC /* moonwalkingparrot.gif */,
+				38996779247C617D009C37FC /* mustacheparrot.gif */,
+				389967C0247C6183009C37FC /* norwegianblueparrot.gif */,
+				389967C2247C6183009C37FC /* opensourceparrot.gif */,
+				38996789247C617E009C37FC /* originalparrot.gif */,
+				389967E0247C6186009C37FC /* parrot.gif */,
+				389967EE247C618A009C37FC /* parrotnotfound.gif */,
+				389967E6247C6188009C37FC /* partyparrot.gif */,
+				389967D7247C6185009C37FC /* phparrot.gif */,
+				389967AE247C6182009C37FC /* picassoparrot.gif */,
+				389967EF247C618A009C37FC /* pingpongparrot.gif */,
+				3899679D247C6180009C37FC /* pirateparrot.gif */,
+				389967A6247C6181009C37FC /* popcornparrot.gif */,
+				389967BD247C6183009C37FC /* portalblueparrot.gif */,
+				3899677B247C617D009C37FC /* portalorangeparrot.gif */,
+				389967D3247C6185009C37FC /* pumpkinparrot.gif */,
+				389967B8247C6182009C37FC /* redenvelopeparrot.gif */,
+				389967A1247C6180009C37FC /* redhatparrot.gif */,
+				389967E9247C6189009C37FC /* reversecongaparrot.gif */,
+				3899677A247C617D009C37FC /* reverseparrot.gif */,
+				38996781247C617D009C37FC /* reverseportalblueparrot.gif */,
+				389967B6247C6182009C37FC /* reverseportalorangeparrot.gif */,
+				38996791247C617F009C37FC /* revolutionparrot.gif */,
+				3899678B247C617E009C37FC /* rubyparrot.gif */,
+				389967D9247C6186009C37FC /* rythmicalparrot.gif */,
+				3899678D247C617E009C37FC /* sadparrot.gif */,
+				389967CD247C6184009C37FC /* sassyparrot.gif */,
+				389967E7247C6189009C37FC /* scienceparrot.gif */,
+				389967DA247C6186009C37FC /* sherlockholmesparrot.gif */,
+				38996783247C617D009C37FC /* shortparrot.gif */,
+				389967B0247C6182009C37FC /* shuffleparrot.gif */,
+				389967A9247C6181009C37FC /* sintparrot.gif */,
+				389967C6247C6184009C37FC /* sithparrot.gif */,
+				389967DF247C6186009C37FC /* sleepingparrot.gif */,
+				38996792247C617F009C37FC /* slowparrot.gif */,
+				389967C3247C6183009C37FC /* spinningparrot.gif */,
+				3899677C247C617D009C37FC /* spyparrot.gif */,
+				389967CF247C6185009C37FC /* stableparrot.gif */,
+				38996788247C617E009C37FC /* sushiparrot.gif */,
+				389967A8247C6181009C37FC /* tennisparrot.gif */,
+				389967D2247C6185009C37FC /* thumbsupparrot.gif */,
+				3899678E247C617E009C37FC /* tiedyeparrot.gif */,
+				38996787247C617E009C37FC /* tpparrot.gif */,
+				389967D8247C6186009C37FC /* transparront.gif */,
+				389967E2247C6187009C37FC /* twinsparrot.gif */,
+				389967AC247C6181009C37FC /* ultrafastparrot.gif */,
+				389967D0247C6185009C37FC /* verticalparrot.gif */,
+				389967B5247C6182009C37FC /* vikingparrot.gif */,
+				389967EA247C6189009C37FC /* wendyparrot.gif */,
+				389967B3247C6182009C37FC /* wfhparrot.gif */,
+				38996796247C617F009C37FC /* whitewalkerparrot.gif */,
+				389967D1247C6185009C37FC /* wineparrot.gif */,
+				389967E8247C6189009C37FC /* yosemitesamparrot.gif */,
+			);
+			path = Parrots;
+			sourceTree = "<group>";
+		};
+		38996767247C6022009C37FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3899676A247C604F009C37FC /* ParrotModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38996768247C602B009C37FC /* ParrotDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				3899676C247C6065009C37FC /* ParrotDetailController.swift */,
+				3899676D247C6065009C37FC /* ParrotDetailViewModel.swift */,
+			);
+			path = ParrotDetailScene;
+			sourceTree = "<group>";
+		};
+		38996769247C6032009C37FC /* ParrotSelectionScene */ = {
+			isa = PBXGroup;
+			children = (
+				38996771247C607B009C37FC /* ParrotSelectionController.swift */,
+				38996772247C607B009C37FC /* ParrotSelectionViewModel.swift */,
+				38996770247C606F009C37FC /* Cell */,
+			);
+			path = ParrotSelectionScene;
+			sourceTree = "<group>";
+		};
+		38996770247C606F009C37FC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38996775247C6082009C37FC /* ParrotSelectionTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		38996745247C5EEB009C37FC /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3899675A247C5EED009C37FC /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				38996742247C5EEB009C37FC /* Sources */,
+				38996743247C5EEB009C37FC /* Frameworks */,
+				38996744247C5EEB009C37FC /* Resources */,
+				3899675D247C5F1B009C37FC /* Swiftlint Phase */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Example;
+			productName = Example;
+			productReference = 38996746247C5EEB009C37FC /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3899673E247C5EEB009C37FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Yasin TURKOGLU";
+				TargetAttributes = {
+					38996745247C5EEB009C37FC = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = 38996741247C5EEB009C37FC /* Build configuration list for PBXProject "Example" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3899673D247C5EEB009C37FC;
+			productRefGroup = 38996747247C5EEB009C37FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38996745247C5EEB009C37FC /* Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38996744247C5EEB009C37FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38996834247C618B009C37FC /* backwardsparrot.gif in Resources */,
+				3899682C247C618B009C37FC /* wfhparrot.gif in Resources */,
+				38996859247C618B009C37FC /* parrot.gif in Resources */,
+				3899685F247C618B009C37FC /* partyparrot.gif in Resources */,
+				389967F4247C618A009C37FC /* portalorangeparrot.gif in Resources */,
+				38996850247C618B009C37FC /* phparrot.gif in Resources */,
+				3899680B247C618A009C37FC /* slowparrot.gif in Resources */,
+				38996819247C618A009C37FC /* dadparrot.gif in Resources */,
+				3899683C247C618B009C37FC /* spinningparrot.gif in Resources */,
+				38996817247C618A009C37FC /* calvinist_parrot.gif in Resources */,
+				389967F1247C618A009C37FC /* laptop_parrot.gif in Resources */,
+				38996835247C618B009C37FC /* levitationparrot.gif in Resources */,
+				38996845247C618B009C37FC /* inverseparrot.gif in Resources */,
+				38996832247C618B009C37FC /* bikerparrot.gif in Resources */,
+				38996840247C618B009C37FC /* darkmodeparrot.gif in Resources */,
+				38996843247C618B009C37FC /* hardhatparrot.gif in Resources */,
+				38996831247C618B009C37FC /* redenvelopeparrot.gif in Resources */,
+				389967FA247C618A009C37FC /* reverseportalblueparrot.gif in Resources */,
+				38996830247C618B009C37FC /* 60fpsparrot.gif in Resources */,
+				38996826247C618A009C37FC /* birthdaypartyparrot.gif in Resources */,
+				38996847247C618B009C37FC /* bouncingparrot.gif in Resources */,
+				38996836247C618B009C37FC /* portalblueparrot.gif in Resources */,
+				38996824247C618A009C37FC /* brazilianplayerparrot.gif in Resources */,
+				3899680F247C618A009C37FC /* whitewalkerparrot.gif in Resources */,
+				38996804247C618A009C37FC /* rubyparrot.gif in Resources */,
+				38996868247C618B009C37FC /* pingpongparrot.gif in Resources */,
+				38996814247C618A009C37FC /* flyingmoneyparrot.gif in Resources */,
+				38996822247C618A009C37FC /* sintparrot.gif in Resources */,
+				38996849247C618B009C37FC /* verticalparrot.gif in Resources */,
+				3899683B247C618B009C37FC /* opensourceparrot.gif in Resources */,
+				38996756247C5EED009C37FC /* LaunchScreen.storyboard in Resources */,
+				38996837247C618B009C37FC /* fastparrot.gif in Resources */,
+				38996800247C618A009C37FC /* tpparrot.gif in Resources */,
+				38996833247C618B009C37FC /* horizontalparrot.gif in Resources */,
+				389967F2247C618A009C37FC /* mustacheparrot.gif in Resources */,
+				389967FC247C618A009C37FC /* shortparrot.gif in Resources */,
+				38996853247C618B009C37FC /* sherlockholmesparrot.gif in Resources */,
+				38996869247C618B009C37FC /* headbangingparrot.gif in Resources */,
+				3899684B247C618B009C37FC /* thumbsupparrot.gif in Resources */,
+				38996841247C618B009C37FC /* covid19parrot.gif in Resources */,
+				38996839247C618B009C37FC /* norwegianblueparrot.gif in Resources */,
+				3899681C247C618A009C37FC /* donutparrot.gif in Resources */,
+				3899682D247C618B009C37FC /* angelparrot.gif in Resources */,
+				3899685E247C618B009C37FC /* aussiecongaparrot.gif in Resources */,
+				3899681E247C618A009C37FC /* chicoparrot.gif in Resources */,
+				3899683E247C618B009C37FC /* discoparrot.gif in Resources */,
+				38996844247C618B009C37FC /* ceilingparrot.gif in Resources */,
+				38996823247C618A009C37FC /* dealwithitnowparrot.gif in Resources */,
+				3899684C247C618B009C37FC /* pumpkinparrot.gif in Resources */,
+				38996866247C618B009C37FC /* evilparrot.gif in Resources */,
+				389967FB247C618A009C37FC /* congaparrot.gif in Resources */,
+				38996854247C618B009C37FC /* hypnoparrotlight.gif in Resources */,
+				3899681D247C618A009C37FC /* everythingsfineparrot.gif in Resources */,
+				38996855247C618B009C37FC /* githubparrot.gif in Resources */,
+				3899681B247C618A009C37FC /* bluntparrot.gif in Resources */,
+				38996860247C618B009C37FC /* scienceparrot.gif in Resources */,
+				3899680E247C618A009C37FC /* illuminatiparrot.gif in Resources */,
+				3899682B247C618B009C37FC /* bunnyparrot.gif in Resources */,
+				38996856247C618B009C37FC /* meldparrot.gif in Resources */,
+				38996848247C618B009C37FC /* stableparrot.gif in Resources */,
+				38996838247C618B009C37FC /* hypnoparrot.gif in Resources */,
+				389967FD247C618A009C37FC /* boredparrot.gif in Resources */,
+				3899685A247C618B009C37FC /* dealwithitparrot.gif in Resources */,
+				38996808247C618A009C37FC /* moonparrot.gif in Resources */,
+				38996816247C618A009C37FC /* pirateparrot.gif in Resources */,
+				389967F3247C618A009C37FC /* reverseparrot.gif in Resources */,
+				3899685B247C618B009C37FC /* twinsparrot.gif in Resources */,
+				38996828247C618A009C37FC /* flowerparrot.gif in Resources */,
+				38996803247C618A009C37FC /* michaeljacksonparrot.gif in Resources */,
+				3899681F247C618A009C37FC /* popcornparrot.gif in Resources */,
+				3899682F247C618B009C37FC /* reverseportalorangeparrot.gif in Resources */,
+				38996813247C618A009C37FC /* invisibleparrot.gif in Resources */,
+				38996807247C618A009C37FC /* tiedyeparrot.gif in Resources */,
+				38996864247C618B009C37FC /* beretparrot.gif in Resources */,
+				389967FE247C618A009C37FC /* headingparrot.gif in Resources */,
+				38996818247C618A009C37FC /* aussiereversecongaparrot.gif in Resources */,
+				3899685D247C618B009C37FC /* maracasparrot.gif in Resources */,
+				38996861247C618B009C37FC /* yosemitesamparrot.gif in Resources */,
+				38996811247C618A009C37FC /* bobaparrot.gif in Resources */,
+				3899684D247C618B009C37FC /* innersourceparrot.gif in Resources */,
+				38996806247C618A009C37FC /* sadparrot.gif in Resources */,
+				38996858247C618B009C37FC /* sleepingparrot.gif in Resources */,
+				389967F5247C618A009C37FC /* spyparrot.gif in Resources */,
+				3899685C247C618B009C37FC /* beerparrot.gif in Resources */,
+				389967F6247C618A009C37FC /* gothparrot.gif in Resources */,
+				38996852247C618B009C37FC /* rythmicalparrot.gif in Resources */,
+				3899682A247C618B009C37FC /* harpoparrot.gif in Resources */,
+				38996857247C618B009C37FC /* middleparrot.gif in Resources */,
+				38996753247C5EED009C37FC /* Assets.xcassets in Resources */,
+				38996751247C5EEB009C37FC /* Main.storyboard in Resources */,
+				3899683F247C618B009C37FC /* sithparrot.gif in Resources */,
+				38996801247C618A009C37FC /* sushiparrot.gif in Resources */,
+				389967F7247C618A009C37FC /* footballparrot.gif in Resources */,
+				38996821247C618A009C37FC /* tennisparrot.gif in Resources */,
+				3899684E247C618B009C37FC /* headsetparrot.gif in Resources */,
+				38996815247C618A009C37FC /* grouchoparrot.gif in Resources */,
+				38996827247C618A009C37FC /* picassoparrot.gif in Resources */,
+				38996810247C618A009C37FC /* angryparrot.gif in Resources */,
+				38996842247C618B009C37FC /* aussieparrot.gif in Resources */,
+				3899684A247C618B009C37FC /* wineparrot.gif in Resources */,
+				3899683D247C618B009C37FC /* hypnoparrotdark.gif in Resources */,
+				3899680C247C618A009C37FC /* copparrot.gif in Resources */,
+				38996862247C618B009C37FC /* reversecongaparrot.gif in Resources */,
+				389967F9247C618A009C37FC /* jediparrot.gif in Resources */,
+				38996825247C618A009C37FC /* ultrafastparrot.gif in Resources */,
+				3899680D247C618A009C37FC /* bootlegparrot.gif in Resources */,
+				38996863247C618B009C37FC /* wendyparrot.gif in Resources */,
+				3899683A247C618B009C37FC /* congapartyparrot.gif in Resources */,
+				38996829247C618B009C37FC /* shuffleparrot.gif in Resources */,
+				38996865247C618B009C37FC /* gentlemanparrot.gif in Resources */,
+				3899682E247C618B009C37FC /* vikingparrot.gif in Resources */,
+				38996820247C618A009C37FC /* brazilianfanparrot.gif in Resources */,
+				38996809247C618A009C37FC /* moonwalkingparrot.gif in Resources */,
+				38996867247C618B009C37FC /* parrotnotfound.gif in Resources */,
+				389967F8247C618A009C37FC /* marshmallowparrot.gif in Resources */,
+				3899684F247C618B009C37FC /* frenchparrot.gif in Resources */,
+				38996846247C618B009C37FC /* sassyparrot.gif in Resources */,
+				38996805247C618A009C37FC /* confusedparrot.gif in Resources */,
+				38996851247C618B009C37FC /* transparront.gif in Resources */,
+				3899681A247C618A009C37FC /* redhatparrot.gif in Resources */,
+				389967FF247C618A009C37FC /* christmasparrot.gif in Resources */,
+				38996802247C618A009C37FC /* originalparrot.gif in Resources */,
+				3899680A247C618A009C37FC /* revolutionparrot.gif in Resources */,
+				38996812247C618A009C37FC /* mardigrasparrot.gif in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3899675D247C5F1B009C37FC /* Swiftlint Phase */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlint Phase";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		38996742247C5EEB009C37FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38996766247C6008009C37FC /* UIImage+Extension.swift in Sources */,
+				3899676B247C604F009C37FC /* ParrotModel.swift in Sources */,
+				3899674E247C5EEB009C37FC /* ViewController.swift in Sources */,
+				38996774247C607B009C37FC /* ParrotSelectionViewModel.swift in Sources */,
+				3899676F247C6065009C37FC /* ParrotDetailViewModel.swift in Sources */,
+				38996776247C6082009C37FC /* ParrotSelectionTableViewCell.swift in Sources */,
+				3899676E247C6065009C37FC /* ParrotDetailController.swift in Sources */,
+				3899674A247C5EEB009C37FC /* AppDelegate.swift in Sources */,
+				38996773247C607B009C37FC /* ParrotSelectionController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3899674F247C5EEB009C37FC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38996750247C5EEB009C37FC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		38996754247C5EED009C37FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38996755247C5EED009C37FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		38996758247C5EED009C37FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		38996759247C5EED009C37FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3899675B247C5EED009C37FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QVB65JC65V;
+				INFOPLIST_FILE = Example/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yasinturkoglu.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3899675C247C5EED009C37FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QVB65JC65V;
+				INFOPLIST_FILE = Example/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yasinturkoglu.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38996741247C5EEB009C37FC /* Build configuration list for PBXProject "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38996758247C5EED009C37FC /* Debug */,
+				38996759247C5EED009C37FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3899675A247C5EED009C37FC /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3899675B247C5EED009C37FC /* Debug */,
+				3899675C247C5EED009C37FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3899673E247C5EEB009C37FC /* Project object */;
+}
