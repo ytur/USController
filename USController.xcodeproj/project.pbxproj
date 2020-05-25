@@ -8,12 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		38996725247C3598009C37FC /* USController.h in Headers */ = {isa = PBXBuildFile; fileRef = 38996723247C3598009C37FC /* USController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3899672E247C38DF009C37FC /* USCEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899672C247C38DF009C37FC /* USCEnums.swift */; };
+		3899672F247C38DF009C37FC /* USCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899672D247C38DF009C37FC /* USCDataSource.swift */; };
+		38996736247C38FA009C37FC /* UniversalSplitController+UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996731247C38FA009C37FC /* UniversalSplitController+UIConfiguration.swift */; };
+		38996737247C38FA009C37FC /* UniversalSplitController+AnimationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996732247C38FA009C37FC /* UniversalSplitController+AnimationConfiguration.swift */; };
+		38996738247C38FA009C37FC /* UniversalSplitController+CustomSwipeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996733247C38FA009C37FC /* UniversalSplitController+CustomSwipeConfiguration.swift */; };
+		38996739247C38FA009C37FC /* UniversalSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996734247C38FA009C37FC /* UniversalSplitController.swift */; };
+		3899673A247C38FA009C37FC /* UniversalSplitController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38996735247C38FA009C37FC /* UniversalSplitController+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		38996720247C3598009C37FC /* USController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = USController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38996723247C3598009C37FC /* USController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USController.h; sourceTree = "<group>"; };
 		38996724247C3598009C37FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3899672C247C38DF009C37FC /* USCEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USCEnums.swift; sourceTree = "<group>"; };
+		3899672D247C38DF009C37FC /* USCDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USCDataSource.swift; sourceTree = "<group>"; };
+		38996731247C38FA009C37FC /* UniversalSplitController+UIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalSplitController+UIConfiguration.swift"; sourceTree = "<group>"; };
+		38996732247C38FA009C37FC /* UniversalSplitController+AnimationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalSplitController+AnimationConfiguration.swift"; sourceTree = "<group>"; };
+		38996733247C38FA009C37FC /* UniversalSplitController+CustomSwipeConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalSplitController+CustomSwipeConfiguration.swift"; sourceTree = "<group>"; };
+		38996734247C38FA009C37FC /* UniversalSplitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalSplitController.swift; sourceTree = "<group>"; };
+		38996735247C38FA009C37FC /* UniversalSplitController+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalSplitController+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +60,41 @@
 		38996722247C3598009C37FC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3899673C247C391B009C37FC /* Core */,
+				3899673B247C3911009C37FC /* SupportingFiles */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		38996730247C38E9009C37FC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38996734247C38FA009C37FC /* UniversalSplitController.swift */,
+				38996732247C38FA009C37FC /* UniversalSplitController+AnimationConfiguration.swift */,
+				38996733247C38FA009C37FC /* UniversalSplitController+CustomSwipeConfiguration.swift */,
+				38996735247C38FA009C37FC /* UniversalSplitController+Helpers.swift */,
+				38996731247C38FA009C37FC /* UniversalSplitController+UIConfiguration.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3899673B247C3911009C37FC /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				38996723247C3598009C37FC /* USController.h */,
 				38996724247C3598009C37FC /* Info.plist */,
 			);
-			path = Source;
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		3899673C247C391B009C37FC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3899672D247C38DF009C37FC /* USCDataSource.swift */,
+				3899672C247C38DF009C37FC /* USCEnums.swift */,
+				38996730247C38E9009C37FC /* Controller */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +141,7 @@
 				TargetAttributes = {
 					3899671F247C3598009C37FC = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -153,6 +199,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38996739247C38FA009C37FC /* UniversalSplitController.swift in Sources */,
+				38996738247C38FA009C37FC /* UniversalSplitController+CustomSwipeConfiguration.swift in Sources */,
+				38996737247C38FA009C37FC /* UniversalSplitController+AnimationConfiguration.swift in Sources */,
+				38996736247C38FA009C37FC /* UniversalSplitController+UIConfiguration.swift in Sources */,
+				3899672F247C38DF009C37FC /* USCDataSource.swift in Sources */,
+				3899672E247C38DF009C37FC /* USCEnums.swift in Sources */,
+				3899673A247C38FA009C37FC /* UniversalSplitController+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +335,7 @@
 		38996729247C3598009C37FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QVB65JC65V;
@@ -301,6 +355,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -309,6 +364,7 @@
 		3899672A247C3598009C37FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QVB65JC65V;
