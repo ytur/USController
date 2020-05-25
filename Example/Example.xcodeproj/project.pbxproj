@@ -140,7 +140,40 @@
 		38996867247C618B009C37FC /* parrotnotfound.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967EE247C618A009C37FC /* parrotnotfound.gif */; };
 		38996868247C618B009C37FC /* pingpongparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967EF247C618A009C37FC /* pingpongparrot.gif */; };
 		38996869247C618B009C37FC /* headbangingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967F0247C618A009C37FC /* headbangingparrot.gif */; };
+		38996875247C69B6009C37FC /* USController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38996873247C699B009C37FC /* USController.framework */; };
+		38996876247C69B6009C37FC /* USController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38996873247C699B009C37FC /* USController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38996872247C699B009C37FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3899686E247C699A009C37FC /* USController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 38996720247C3598009C37FC;
+			remoteInfo = USController;
+		};
+		38996878247C69E2009C37FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3899686E247C699A009C37FC /* USController.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3899671F247C3598009C37FC;
+			remoteInfo = USController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		38996877247C69B6009C37FC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				38996876247C69B6009C37FC /* USController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		38996746247C5EEB009C37FC /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,6 +311,7 @@
 		389967EE247C618A009C37FC /* parrotnotfound.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = parrotnotfound.gif; sourceTree = "<group>"; };
 		389967EF247C618A009C37FC /* pingpongparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pingpongparrot.gif; sourceTree = "<group>"; };
 		389967F0247C618A009C37FC /* headbangingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = headbangingparrot.gif; sourceTree = "<group>"; };
+		3899686E247C699A009C37FC /* USController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = USController.xcodeproj; path = ../USController.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38996875247C69B6009C37FC /* USController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +331,7 @@
 			children = (
 				38996748247C5EEB009C37FC /* Example */,
 				38996747247C5EEB009C37FC /* Products */,
+				3899686E247C699A009C37FC /* USController.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -520,6 +556,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		3899686F247C699A009C37FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38996873247C699B009C37FC /* USController.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -531,10 +575,12 @@
 				38996743247C5EEB009C37FC /* Frameworks */,
 				38996744247C5EEB009C37FC /* Resources */,
 				3899675D247C5F1B009C37FC /* Swiftlint Phase */,
+				38996877247C69B6009C37FC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				38996879247C69E2009C37FC /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -567,12 +613,28 @@
 			mainGroup = 3899673D247C5EEB009C37FC;
 			productRefGroup = 38996747247C5EEB009C37FC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3899686F247C699A009C37FC /* Products */;
+					ProjectRef = 3899686E247C699A009C37FC /* USController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				38996745247C5EEB009C37FC /* Example */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		38996873247C699B009C37FC /* USController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = USController.framework;
+			remoteRef = 38996872247C699B009C37FC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		38996744247C5EEB009C37FC /* Resources */ = {
@@ -747,6 +809,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38996879247C69E2009C37FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = USController;
+			targetProxy = 38996878247C69E2009C37FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3899674F247C5EEB009C37FC /* Main.storyboard */ = {
