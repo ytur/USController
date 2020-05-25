@@ -100,7 +100,7 @@ It removes the USController and views permanently from its parent controller and
 dataSource.disposeTheController()
 ```
 
-Forces the detail controller to hide if it's displayed and keep remained hidden despite toggle action.
+Forces the detail controller to hide if it's displayed and keep hidden despite toggle actions.
 ```Swift
 dataSource.forceToHide = true
 ```
