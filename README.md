@@ -10,6 +10,7 @@ More customizable <b>U</b>niversal <b>S</b>plit <b>Controller</b> for IOS device
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 ## Example
+### Download Example party-parrot project from repo to poke around.<br/>
 ![iPhone-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone.gif)
 ![iPad-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPad.gif)
 
@@ -68,7 +69,7 @@ Import USController to the controller which you want to use it as child controll
 ```Swift
 import USController
 ```
-USController can be started with builder-pattern. You must specify the parent controller with ```parentController``` Builder class parameter. Master and Detail controllers can be set with builder methods.
+USController can be configured easily by it's builder initializer methods. You must specify the parent controller with "parentController" parameter of Builder class. Master and Detail controllers can be set with builder methods.
 ```Swift
 let masterController = UIViewController()
 let detailController = UIViewController()
@@ -99,7 +100,7 @@ It changes current visibility state of detail controller between "visible" and "
 dataSource.detailToggle()
 ```
 
-It removes the USController and views permanently from its parent controller and view.
+It removes the USController and its subviews permanently from parent controller and view.
 ```Swift
 dataSource.disposeTheController()
 ```
