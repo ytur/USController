@@ -9,6 +9,10 @@ More customizable <b>U</b>niversal <b>S</b>plit <b>Controller</b> for IOS device
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
+## Example
+![iPhone-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone.gif)
+![iPad-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPad.gif)
+
 ## Requirements
 
 • iOS 9.0+ 
