@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'USController'
-  s.version = '1.0.0'
+  s.version = '1.0.1'
   s.license = 'MIT'
   s.summary = 'More customizable split controller for IOS device universe.'
   s.homepage = 'https://github.com/ytur/USController'
