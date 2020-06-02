@@ -29,15 +29,15 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
     var dataSource: USCDataSource?
     var previousVisibility: USCDetailVisibility = .invisible
     var visibility: USCDetailVisibility = .invisible
-    var portraitScreenWidth: CGFloat = 0
-    var landscapeScreenWidth: CGFloat = 0
+    var portraitScreenWidth: CGFloat = 0.0
+    var landscapeScreenWidth: CGFloat = 0.0
     private (set) var calculatedLandscapeWidth: CGFloat {
         get {
             return landscapeScreenWidth + safeAreaAdditionForLandsacpe()
         }
         set { _ = newValue }
     }
-    var isCustomWidthSetForLandscape: Bool = false
+    var isCustomWidthSetForLandscape: CGFloat?
     var ignoreDetailAppearanceForOnce: Bool = true
     var ignoreMasterAppearanceForOnce: Bool = true
     var isMasterControllerVisible: Bool = false
@@ -65,6 +65,8 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
     var masterHolderLeading: NSLayoutConstraint!
     var masterHolderTrailing: NSLayoutConstraint!
     var detailHolderWidth: NSLayoutConstraint!
+    var detailHolderLeading: NSLayoutConstraint!
+    var detailHolderTrailing: NSLayoutConstraint!
 
     lazy var blocker: UIView = {
         let view = UIView()
@@ -129,24 +131,45 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
         portraitScreenWidth = portraitWidthForAll
         if let currentDataSource = dataSource,
             let customWidth = currentDataSource.customWidthForPortrait {
-            if customWidth > halfWidthOfPortrait {
-                portraitScreenWidth = halfWidthOfPortrait
-            } else if customWidth < minWidthForPortrait {
-                portraitScreenWidth = minWidthForPortrait
+            if currentDataSource.overlapWhileInPortrait {
+                if customWidth > getPortraitWidthOfScreen() {
+                    portraitScreenWidth = getPortraitWidthOfScreen()
+                } else if customWidth < minWidthForPortrait {
+                    portraitScreenWidth = minWidthForPortrait
+                } else {
+                    portraitScreenWidth = customWidth
+                }
             } else {
-                portraitScreenWidth = customWidth
+                if customWidth > halfWidthOfPortrait {
+                    portraitScreenWidth = halfWidthOfPortrait
+                } else if customWidth < minWidthForPortrait {
+                    portraitScreenWidth = minWidthForPortrait
+                } else {
+                    portraitScreenWidth = customWidth
+                }
             }
         }
         landscapeScreenWidth = landscapeWidthForAll
         if let currentDataSource = dataSource,
             let customWidth = currentDataSource.customWidthForLandscape {
-            if customWidth > halfWidthOfLandscape {
-                landscapeScreenWidth = halfWidthOfLandscape
-            } else if customWidth < minWidthForLandscape {
-                landscapeScreenWidth = minWidthForLandscape
+            if currentDataSource.overlapWhileInLandscape {
+                if customWidth > getLandscapeWidthOfScreen() {
+                    landscapeScreenWidth = getLandscapeWidthOfScreen()
+                } else if customWidth < minWidthForLandscape {
+                    landscapeScreenWidth = minWidthForLandscape
+                } else {
+                    landscapeScreenWidth = customWidth
+                    isCustomWidthSetForLandscape = customWidth
+                }
             } else {
-                landscapeScreenWidth = customWidth
-                isCustomWidthSetForLandscape = true
+                if customWidth > halfWidthOfLandscape {
+                    landscapeScreenWidth = halfWidthOfLandscape
+                } else if customWidth < minWidthForLandscape {
+                    landscapeScreenWidth = minWidthForLandscape
+                } else {
+                    landscapeScreenWidth = customWidth
+                    isCustomWidthSetForLandscape = customWidth
+                }
             }
         }
     }

@@ -90,8 +90,12 @@ extension UniversalSplitController {
         masterControllerView.leadingAnchor.constraint(equalTo: masterHolder.leadingAnchor).isActive = true
         masterControllerView.trailingAnchor.constraint(equalTo: masterHolder.trailingAnchor).isActive = true
         if let currentDataSource = dataSource,
-            let contentBlockerColor = currentDataSource.contentBlockerColor {
-            blocker.backgroundColor = contentBlockerColor
+            let backgroundColor = currentDataSource.contentBlockerColor {
+            if let blur = currentDataSource.contentBlockerBlur {
+                blocker.applyBlur(blur: blur, mixColor: backgroundColor)
+            } else {
+                blocker.backgroundColor = backgroundColor
+            }
             masterHolder.addSubview(blocker)
             blocker.topAnchor.constraint(equalTo: masterHolder.topAnchor).isActive = true
             blocker.bottomAnchor.constraint(equalTo: masterHolder.bottomAnchor).isActive = true
@@ -150,7 +154,8 @@ extension UniversalSplitController {
             detailHolderWidth.isActive = true
             detailHolder.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             detailHolder.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            detailHolder.leadingAnchor.constraint(equalTo: masterHolder.trailingAnchor).isActive = true
+            detailHolderLeading = detailHolder.leadingAnchor.constraint(equalTo: masterHolder.trailingAnchor)
+            detailHolderLeading.isActive = true
         } else if currentDataSource.direction == .leading {
             masterHolder.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             masterHolder.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -163,7 +168,8 @@ extension UniversalSplitController {
             detailHolderWidth.isActive = true
             detailHolder.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             detailHolder.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            detailHolder.trailingAnchor.constraint(equalTo: masterHolder.leadingAnchor).isActive = true
+            detailHolderTrailing = detailHolder.trailingAnchor.constraint(equalTo: masterHolder.leadingAnchor)
+            detailHolderTrailing.isActive = true
         }
         view.layoutIfNeeded()
     }

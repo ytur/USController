@@ -32,12 +32,14 @@ class ViewController: UIViewController {
         uscDataSource = USCDataSource.Builder(parentController: self)
             .setMasterController(parrotDetailController, embedInNavController: true)
             .setDetailController(parrotSelectionController, embedInNavController: true)
-            .setAppearance(.visibleInit)
+            .setAppearance(.invisibleInit)
             .setDirection(.trailing)
-            .showBlockerOnMaster(color: .black, opacity: 0.1, allowInteractions: true)
+            .showBlockerOnMaster(color: .purple, opacity: 0.5, blur: .light, allowInteractions: true)
             .swipeable()
             .invokeAppearanceMethods()
-            .portraitCustomWidth(100.0)
+            .overlapWhileInPortrait()
+            .overlapWhileInLandscape()
+            .portraitCustomWidth(300.0)
             .landscapeCustomWidth(100.0)
             .visibilityChangesListener(willStartBlock: { [weak self] (targetVisibility) in
                 guard let self = self else { return }
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
             self.parrotDetailViewModel.selectedParrot = parrot
         }
         parrotSelectionViewModel.createParrotsList()
+        parrotDetailViewModel.selectedParrot = parrotSelectionViewModel.parrots.first
     }
 
     // MARK: Parrot Detail Scene setup

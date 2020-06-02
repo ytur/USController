@@ -81,14 +81,18 @@ extension UniversalSplitController {
             let currentDataSource = dataSource,
             let window = UIApplication.shared.windows.first,
             isLandscape(),
-            isCustomWidthSetForLandscape else { return 0.0 }
+            let customWidth = isCustomWidthSetForLandscape else { return 0.0 }
+        var returunValue: CGFloat = 0.0
         if currentDataSource.direction == .trailing {
-            return window.safeAreaInsets.right
+            if customWidth + window.safeAreaInsets.right < getLandscapeWidthOfScreen() {
+                returunValue = window.safeAreaInsets.right
+            }
         } else if currentDataSource.direction == .leading {
-            return window.safeAreaInsets.left
-        } else {
-            return 0.0
+            if customWidth + window.safeAreaInsets.left < getLandscapeWidthOfScreen() {
+                returunValue = window.safeAreaInsets.left
+            }
         }
+        return returunValue
     }
 
     func masterControllerVisibilityCheckher(isLandscape: Bool) -> Bool {
@@ -96,6 +100,9 @@ extension UniversalSplitController {
             return true
         } else {
             if isPhone() && portraitScreenWidth == getPortraitWidthOfScreen() {
+                if let currentDataSource = dataSource, currentDataSource.overlapWhileInPortrait {
+                    return true
+                }
                 return visibility == .invisible
             } else {
                 return true

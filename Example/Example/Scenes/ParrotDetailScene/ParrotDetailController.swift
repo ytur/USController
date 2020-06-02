@@ -51,6 +51,26 @@ class ParrotDetailController: UIViewController {
         setupUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("master - viewWillAppear")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("master - viewDidAppear")
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("master - viewWillDisappear")
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("master - viewDidDisappear")
+    }
+
     private func setupUI() {
         barButtonUpdate(status: true)
         viewModel.barButtonStatusUpdater = { [weak self] status in
@@ -82,7 +102,11 @@ class ParrotDetailController: UIViewController {
         trailingConstraint.priority = UILayoutPriority(rawValue: 998)
         trailingConstraint.isActive = true
         view.layoutIfNeeded()
-
+        if let parrot = viewModel.selectedParrot,
+            let parrotData = parrot.data {
+            self.title = parrot.name
+            self.parrotViewer.image = UIImage.gifImageWithData(parrotData)
+        }
         viewModel.parrotDetailUpdater = { [weak self] parrot in
             guard let self = self,
                 let parrotData = parrot.data else { return }

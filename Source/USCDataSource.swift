@@ -42,23 +42,24 @@ public class USCDataSource {
     private(set) var appearance: USCDetailAppearance = .auto
     private(set) var direction: USCDetailDirection = .trailing
     private(set) var contentBlockerColor: UIColor?
+    private(set) var contentBlockerBlur: UIBlurEffect.Style?
     private(set) var contentBlockerInteractions: Bool?
     private(set) var customWidthForPortrait: CGFloat?
     private(set) var customWidthForLandscape: CGFloat?
+    private(set) var overlapWhileInPortrait: Bool = false
+    private(set) var overlapWhileInLandscape: Bool = false
     private(set) var visibilityWillStartBlock: ((USCDetailVisibility) -> Void)?
     private(set) var visibilityAnimationBlock: ((USCDetailVisibility) -> Void)?
     private(set) var visibilityDidEndBlock: ((USCDetailVisibility) -> Void)?
     private(set) var swipeable: Bool = false
     private(set) var couldBeBlockedByOtherEventsIfAny: Bool = false
     private(set) var invokeAppearanceMethods: Bool = false
-
     /// Builder object should be initiated with `parentController` parameter
     /// to specify where the USController will append as child controller.
     ///
     public class Builder {
 
         private let dataSource = USCDataSource()
-
         /// Builder object should be initiated with `parentController` parameter
         /// to specify where the USController will append as child controller.
         ///
@@ -68,7 +69,6 @@ public class USCDataSource {
         public init(parentController: UIViewController) {
             dataSource.parentController = parentController
         }
-
         /// It specifies the controller which will be place in master controller division of the screen.
         ///
         /// - Parameters:
@@ -85,7 +85,6 @@ public class USCDataSource {
             dataSource.masterWillEmbedInNavController = embedInNavController
             return self
         }
-
         /// It specifies the controller which will be place in master controller division of the screen.
         ///
         /// - Parameters:
@@ -118,7 +117,6 @@ public class USCDataSource {
             dataSource.masterWillEmbedInNavController = embedInNavController
             return self
         }
-
         /// It specifies the controller which will be place in detail controller division of the screen.
         ///
         /// - Parameters:
@@ -135,7 +133,6 @@ public class USCDataSource {
             dataSource.detailWillEmbedInNavController = embedInNavController
             return self
         }
-
         /// It specifies the controller which will be place in detail controller division of the screen.
         ///
         /// - Parameters:
@@ -168,7 +165,6 @@ public class USCDataSource {
             dataSource.detailWillEmbedInNavController = embedInNavController
             return self
         }
-
         /// It specifies the option that define how the detail controller is displayed on the screen.
         ///
         /// - Parameters:
@@ -183,7 +179,6 @@ public class USCDataSource {
             dataSource.appearance = appearance
             return self
         }
-
         /// It specifies the option that define the displaying direction of the detail controller on screen.
         ///
         /// - Parameters:
@@ -199,7 +194,6 @@ public class USCDataSource {
             dataSource.direction = direction
             return self
         }
-
         /// It blocks user interactions of the master controller with a view to be placed on
         /// top of the master controller while both in detail and master controller appears on the screen.
         ///
@@ -208,18 +202,22 @@ public class USCDataSource {
         ///     - opacity: Custom opacity of content blocker. The opacity value specified as a value f
         ///     rom 0.0 to 1.0. Alpha values below 0.0 are interpreted as 0.0,
         ///     and values above 1.0 are interpreted as 1.0
-        ///     - allowInteractions: If it's true, allows user interactions even while the blocker is displayed.
+        ///     - blur: The intensity of the blur effect. See UIBlurEffect.Style for valid options.
+        ///     - allowInteractions: If parameter takes true, it allows the user interactions while blocker displayed.
         ///
         /// - Returns: Builder object returns so that the next method can be called.
         ///
         /// - Absence of this method in builder chain won't affect the build process.
         ///
-        public func showBlockerOnMaster(color: UIColor, opacity: CGFloat, allowInteractions: Bool = false) -> Builder {
+        public func showBlockerOnMaster(color: UIColor,
+                                        opacity: CGFloat = 1.0,
+                                        blur: UIBlurEffect.Style? = nil,
+                                        allowInteractions: Bool = false) -> Builder {
             dataSource.contentBlockerColor = color.withAlphaComponent(opacity)
+            dataSource.contentBlockerBlur = blur
             dataSource.contentBlockerInteractions = allowInteractions
             return self
         }
-
         /// It makes the detail controller swipeable with UI Gestures to hide or show it.
         ///
         /// - Parameters:
@@ -236,7 +234,6 @@ public class USCDataSource {
             dataSource.couldBeBlockedByOtherEventsIfAny = couldBeBlockedByOtherEventsIfAny
             return self
         }
-
         /// It allows calling the appearance methods (viewWillAppear, viewDidAppear,
         /// viewWillDisappear, viewDidDisappear) of master and detail controllers
         /// which invokes by their visibility changes.
@@ -249,8 +246,27 @@ public class USCDataSource {
             dataSource.invokeAppearanceMethods = true
             return self
         }
-
-        /// It allows you to define custom width for detail controller while displayed in portrait.
+        /// It overlap detail controller over master controller rather than splitting them while in portrait.
+        ///
+        /// - Returns: Builder object returns so that the next method can be called.
+        ///
+        /// - Absence of this method in builder chain won't affect the build process.
+        ///
+        public func overlapWhileInPortrait() -> Builder {
+            dataSource.overlapWhileInPortrait = true
+            return self
+        }
+        /// It overlap detail controller over master controller rather than splitting them while in landscape.
+        ///
+        /// - Returns: Builder object returns so that the next method can be called.
+        ///
+        /// - Absence of this method in builder chain won't affect the build process.
+        ///
+        public func overlapWhileInLandscape() -> Builder {
+            dataSource.overlapWhileInLandscape = true
+            return self
+        }
+        /// It allows you to define custom width for detail controller while in portrait.
         ///
         /// - Parameters:
         ///     - customWidth: Custom width value to define.
@@ -272,8 +288,7 @@ public class USCDataSource {
             dataSource.customWidthForPortrait = CGFloat(fabsf(Float(customWidth)))
             return self
         }
-
-        /// It allows you to define custom width for detail controller while displayed in landscape.
+        /// It allows you to define custom width for detail controller while in landscape.
         ///
         /// - Parameters:
         ///     - customWidth: Custom width value to define.
@@ -304,7 +319,6 @@ public class USCDataSource {
             dataSource.customWidthForLandscape = CGFloat(fabsf(Float(customWidth)))
             return self
         }
-
         /// Detail controller visibility changes can be observable by this method's closure arguments.
         ///
         /// - Parameters:
@@ -335,7 +349,6 @@ public class USCDataSource {
             dataSource.visibilityDidEndBlock = didEndBlock
             return self
         }
-
         /// Once the USController is completely configured, this method must be called to construct the builder object.
         ///
         /// - Returns: Datasource object returns for be able to access runtime properties and methods.
@@ -349,7 +362,6 @@ public class USCDataSource {
     }
 
     public init() { }
-
     /// It returns current visibility state of detail controller.
     /// 
     /// - Returns: USCDetailVisibility
@@ -357,19 +369,16 @@ public class USCDataSource {
     public func getCurrentVisibility() -> USCDetailVisibility {
         return universalSplitController.getCurrentVisibility()
     }
-
     /// It changes current visibility state of detail controller between "visible" and "invisible"
     ///
     public func detailToggle() {
         universalSplitController.detailToggle()
     }
-
     /// It removes the USController and views permanently from its parent controller and view.
     ///
     public func disposeTheController() {
         universalSplitController.disposeTheController()
     }
-
     /// Default value of this parameter is "false". When it will set as "true",
     /// detail controller will be immediately dissmissed from screen
     /// and visibility state will turning to "invisible". Detail controller won't be visible again
@@ -384,5 +393,4 @@ public class USCDataSource {
             universalSplitController.forceToHide = forceToHide
         }
     }
-
 }

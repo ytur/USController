@@ -23,6 +23,7 @@ class ParrotSelectionController: UIViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.backgroundColor = .clear
         tableView.register(ParrotSelectionTableViewCell.self, forCellReuseIdentifier: "parrotCell")
         tableView.separatorInset = .zero
         tableView.separatorStyle = .singleLine
@@ -39,9 +40,25 @@ class ParrotSelectionController: UIViewController {
         title = "parrots"
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("detail - viewWillAppear")
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("detail - viewDidAppear")
         setupUI()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("detail - viewWillDisappear")
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("detail - viewDidDisappear")
     }
 
     func setupUI() {

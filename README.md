@@ -35,7 +35,7 @@ pod 'USController'
 
 You can use Carthage to install USController by adding it to your Cartfile:
 ```ruby
-github "ytur/USController" "master"
+github "ytur/USController"
 ```
 If you use Carthage to build your dependencies, make sure you have added USController.framework to the "Linked Frameworks and Libraries" section of your target, and have included them in your Carthage framework copying build phase.
 

@@ -34,6 +34,8 @@ class ParrotSelectionTableViewCell: UITableViewCell {
     }
 
     private func setupUI() {
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
         contentView.addSubview(parrotImageView)
         parrotImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10.0).isActive = true
         parrotImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10.0).isActive = true
