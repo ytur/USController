@@ -40,25 +40,9 @@ class ParrotSelectionController: UIViewController {
         title = "parrots"
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("detail - viewWillAppear")
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("detail - viewDidAppear")
         setupUI()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("detail - viewWillDisappear")
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("detail - viewDidDisappear")
     }
 
     func setupUI() {

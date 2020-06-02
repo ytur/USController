@@ -31,6 +31,7 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
     var visibility: USCDetailVisibility = .invisible
     var portraitScreenWidth: CGFloat = 0.0
     var landscapeScreenWidth: CGFloat = 0.0
+    private let defaultMaxWidth: CGFloat = 414.0
     private (set) var calculatedLandscapeWidth: CGFloat {
         get {
             return landscapeScreenWidth + safeAreaAdditionForLandsacpe()
@@ -106,29 +107,16 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
         view.clipsToBounds = true
     }
 
-    func setupInitialData() {
+    private func setupInitialData() {
+        setPortraitScreenWidth()
+        setLandscapeScreenWidth()
+    }
+
+    private func setPortraitScreenWidth() {
         let minWidthForPortrait: CGFloat = 100.0
-        let minWidthForLandscape: CGFloat = 100.0
-        let defaultMaxWidth: CGFloat = 414.0
         let halfWidthOfPortrait: CGFloat = getPortraitWidthOfScreen() / 2.0
-        let halfWidthOfLandscape: CGFloat = getLandscapeWidthOfScreen() / 2.0
         let portraitWidthExceptPhones = halfWidthOfPortrait < defaultMaxWidth ? halfWidthOfPortrait : defaultMaxWidth
-        var landscapeWidthForAll: CGFloat = 0.0
-        if getPortraitWidthOfScreen() > halfWidthOfLandscape {
-            if halfWidthOfLandscape > defaultMaxWidth {
-                landscapeWidthForAll = defaultMaxWidth
-            } else {
-                landscapeWidthForAll = halfWidthOfLandscape
-            }
-        } else {
-            if getPortraitWidthOfScreen() > defaultMaxWidth {
-                landscapeWidthForAll = defaultMaxWidth
-            } else {
-                landscapeWidthForAll = getPortraitWidthOfScreen()
-            }
-        }
-        let portraitWidthForAll: CGFloat = isPhone() ? getPortraitWidthOfScreen() : portraitWidthExceptPhones
-        portraitScreenWidth = portraitWidthForAll
+        portraitScreenWidth = isPhone() ? getPortraitWidthOfScreen() : portraitWidthExceptPhones
         if let currentDataSource = dataSource,
             let customWidth = currentDataSource.customWidthForPortrait {
             if currentDataSource.overlapWhileInPortrait {
@@ -147,6 +135,25 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
                 } else {
                     portraitScreenWidth = customWidth
                 }
+            }
+        }
+    }
+
+    private func setLandscapeScreenWidth() {
+        let minWidthForLandscape: CGFloat = 100.0
+        let halfWidthOfLandscape: CGFloat = getLandscapeWidthOfScreen() / 2.0
+        var landscapeWidthForAll: CGFloat = 0.0
+        if getPortraitWidthOfScreen() > halfWidthOfLandscape {
+            if halfWidthOfLandscape > defaultMaxWidth {
+                landscapeWidthForAll = defaultMaxWidth
+            } else {
+                landscapeWidthForAll = halfWidthOfLandscape
+            }
+        } else {
+            if getPortraitWidthOfScreen() > defaultMaxWidth {
+                landscapeWidthForAll = defaultMaxWidth
+            } else {
+                landscapeWidthForAll = getPortraitWidthOfScreen()
             }
         }
         landscapeScreenWidth = landscapeWidthForAll
