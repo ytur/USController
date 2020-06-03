@@ -9,6 +9,9 @@ More customizable <b>U</b>niversal <b>S</b>plit <b>Controller</b> for IOS device
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
+
+<b>USController</b>, aims to display two controllers simultaneously with much simpler and customizable ways than <b>UISplitViewController</b>.
+
 ## Example
 ### Download Example party-parrot project from repo to poke around.<br/>
 ![iPhone-split-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone-split.gif)
@@ -53,7 +56,7 @@ import PackageDescription
 let package = Package(
     name: "YOUR_PROJECT_NAME",
     dependencies: [
-        .package(url: "https://github.com/ytur/USController.git", from: "1.0.1"),
+        .package(url: "https://github.com/ytur/USController.git", from: "1.1.0"),
     ]
 )
 ```
