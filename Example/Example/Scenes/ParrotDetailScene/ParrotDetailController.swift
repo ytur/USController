@@ -104,8 +104,8 @@ class ParrotDetailController: UIViewController {
     }
 
     @objc func barButtonAction() {
-        guard let parrotSelectionToggleHandler = viewModel.parrotSelectionToggleHandler else { return }
-        parrotSelectionToggleHandler()
+        guard let barButtonActionHandler = viewModel.barButtonActionHandler else { return }
+        barButtonActionHandler()
     }
 
 }

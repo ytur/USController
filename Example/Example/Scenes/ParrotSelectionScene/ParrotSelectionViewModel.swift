@@ -14,6 +14,7 @@ protocol ParrotSelectionViewModelDelegate: class {
 
 protocol ParrotSelectionViewModelDataSource: class {
     var parrots: [ParrotModel] { get set }
+    var barButtonActionHandler: (() -> Void)? { get set }
     var parrotSelectionHandler: ((ParrotModel) -> Void)? { get set }
 }
 
@@ -22,6 +23,7 @@ protocol ParrotSelectionViewModelProtocol: ParrotSelectionViewModelDelegate, Par
 class ParrotSelectionViewModel: ParrotSelectionViewModelProtocol {
 
     var parrots = [ParrotModel]()
+    var barButtonActionHandler: (() -> Void)?
     var parrotSelectionHandler: ((ParrotModel) -> Void)?
 
     func createParrotsList() {

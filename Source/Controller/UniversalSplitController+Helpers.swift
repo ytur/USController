@@ -84,11 +84,11 @@ extension UniversalSplitController {
             let customWidth = isCustomWidthSetForLandscape else { return 0.0 }
         var returunValue: CGFloat = 0.0
         if currentDataSource.direction == .trailing {
-            if customWidth + window.safeAreaInsets.right < getLandscapeWidthOfScreen() {
+            if customWidth < defaultMinWidth + window.safeAreaInsets.right {
                 returunValue = window.safeAreaInsets.right
             }
         } else if currentDataSource.direction == .leading {
-            if customWidth + window.safeAreaInsets.left < getLandscapeWidthOfScreen() {
+            if customWidth < defaultMinWidth + window.safeAreaInsets.left {
                 returunValue = window.safeAreaInsets.left
             }
         }

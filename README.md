@@ -82,6 +82,8 @@ let dataSource = USCDataSource.Builder(parentController: self)
                   .showBlockerOnMaster(color: .black, opacity: 0.1, allowInteractions: true)
                   .swipeable()
                   .invokeAppearanceMethods()
+                  .portraitAnimationProperties(duration: 0.35, forwardDampingRatio: 0.5)
+                  .landscapeAnimationProperties(duration: 0.35, forwardDampingRatio: 0.5)
                   .portraitCustomWidth(100.0)
                   .landscapeCustomWidth(100.0)
                   .visibilityChangesListener(willStartBlock: { (targetVisibility) in

@@ -11,7 +11,7 @@ import Foundation
 protocol ParrotDetailViewModelDelegate: class { }
 
 protocol ParrotDetailViewModelDataSource: class {
-    var parrotSelectionToggleHandler: (() -> Void)? { get set }
+    var barButtonActionHandler: (() -> Void)? { get set }
     var barButtonStatusUpdater: ((Bool) -> Void)? { get set }
     var selectedParrot: ParrotModel? { get set }
     var parrotDetailUpdater: ((ParrotModel) -> Void)? { get set }
@@ -21,7 +21,7 @@ protocol ParrotDetailViewModelProtocol: ParrotDetailViewModelDelegate, ParrotDet
 
 class ParrotDetailViewModel: ParrotDetailViewModelProtocol {
 
-    var parrotSelectionToggleHandler: (() -> Void)?
+    var barButtonActionHandler: (() -> Void)?
     var barButtonStatusUpdater: ((Bool) -> Void)?
     var parrotDetailUpdater: ((ParrotModel) -> Void)?
     var selectedParrot: ParrotModel? {
