@@ -11,8 +11,10 @@ More customizable <b>U</b>niversal <b>S</b>plit <b>Controller</b> for IOS device
 
 ## Example
 ### Download Example party-parrot project from repo to poke around.<br/>
-![iPhone-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone.gif)
-![iPad-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPad.gif)
+![iPhone-split-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone-split.gif)
+![iPad-split-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPad-split.gif)
+![iPhone-overlap-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone-overlap.gif)
+![iPad-overlap-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPad-overlap.gif)
 
 ## Requirements
 
