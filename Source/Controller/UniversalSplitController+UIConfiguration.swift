@@ -68,9 +68,21 @@ extension UniversalSplitController {
     }
 
     func setupmMasterHolder() {
+        guard let currentDataSource = dataSource else { return }
         view.addSubview(masterHolder)
-        guard let currentDataSource = dataSource,
-            var masterController = currentDataSource.masterController else { return }
+        if let backgroundColor = currentDataSource.contentBlockerColor {
+            if let blur = currentDataSource.contentBlockerBlur {
+                blocker.applyBlur(blur: blur, mixColor: backgroundColor)
+            } else {
+                blocker.backgroundColor = backgroundColor
+            }
+            masterHolder.addSubview(blocker)
+            blocker.topAnchor.constraint(equalTo: masterHolder.topAnchor).isActive = true
+            blocker.bottomAnchor.constraint(equalTo: masterHolder.bottomAnchor).isActive = true
+            blocker.leadingAnchor.constraint(equalTo: masterHolder.leadingAnchor).isActive = true
+            blocker.trailingAnchor.constraint(equalTo: masterHolder.trailingAnchor).isActive = true
+        }
+        guard var masterController = currentDataSource.masterController else { return }
         if currentDataSource.masterWillEmbedInNavController,
             let wrappedController = navigationControllerWrapper(masterController) {
             masterController = wrappedController
@@ -85,23 +97,11 @@ extension UniversalSplitController {
         masterController.didMove(toParent: self)
         masterControllerView.translatesAutoresizingMaskIntoConstraints = false
         masterHolder.addSubview(masterControllerView)
+        masterHolder.sendSubviewToBack(masterControllerView)
         masterControllerView.topAnchor.constraint(equalTo: masterHolder.topAnchor).isActive = true
         masterControllerView.bottomAnchor.constraint(equalTo: masterHolder.bottomAnchor).isActive = true
         masterControllerView.leadingAnchor.constraint(equalTo: masterHolder.leadingAnchor).isActive = true
         masterControllerView.trailingAnchor.constraint(equalTo: masterHolder.trailingAnchor).isActive = true
-        if let currentDataSource = dataSource,
-            let backgroundColor = currentDataSource.contentBlockerColor {
-            if let blur = currentDataSource.contentBlockerBlur {
-                blocker.applyBlur(blur: blur, mixColor: backgroundColor)
-            } else {
-                blocker.backgroundColor = backgroundColor
-            }
-            masterHolder.addSubview(blocker)
-            blocker.topAnchor.constraint(equalTo: masterHolder.topAnchor).isActive = true
-            blocker.bottomAnchor.constraint(equalTo: masterHolder.bottomAnchor).isActive = true
-            blocker.leadingAnchor.constraint(equalTo: masterHolder.leadingAnchor).isActive = true
-            blocker.trailingAnchor.constraint(equalTo: masterHolder.trailingAnchor).isActive = true
-        }
         masterHolder.layoutIfNeeded()
     }
 
@@ -111,9 +111,17 @@ extension UniversalSplitController {
     }
 
     func setupDetailHolder() {
+        guard let currentDataSource = dataSource else { return }
         view.addSubview(detailHolder)
-        guard let currentDataSource = dataSource,
-            var detailController = currentDataSource.detailController else { return }
+        detailHolder.addSubview(detailInnerHolder)
+        if let backgroundColor = currentDataSource.detailBackgroundColor {
+            if let blur = currentDataSource.detailBackgroundBlur {
+                detailHolder.applyBlur(blur: blur, mixColor: backgroundColor)
+            } else {
+                detailHolder.backgroundColor = backgroundColor
+            }
+        }
+        guard var detailController = currentDataSource.detailController else { return }
         if currentDataSource.detailWillEmbedInNavController,
             let wrappedController = navigationControllerWrapper(detailController) {
             detailController = wrappedController
@@ -127,12 +135,12 @@ extension UniversalSplitController {
         addChild(detailController)
         detailController.didMove(toParent: self)
         detailControllerView.translatesAutoresizingMaskIntoConstraints = false
-        detailHolder.addSubview(detailControllerView)
-        detailControllerView.topAnchor.constraint(equalTo: detailHolder.topAnchor).isActive = true
-        detailControllerView.bottomAnchor.constraint(equalTo: detailHolder.bottomAnchor).isActive = true
-        detailControllerView.leadingAnchor.constraint(equalTo: detailHolder.leadingAnchor).isActive = true
-        detailControllerView.trailingAnchor.constraint(equalTo: detailHolder.trailingAnchor).isActive = true
-        detailHolder.layoutIfNeeded()
+        detailInnerHolder.addSubview(detailControllerView)
+        detailControllerView.topAnchor.constraint(equalTo: detailInnerHolder.topAnchor).isActive = true
+        detailControllerView.bottomAnchor.constraint(equalTo: detailInnerHolder.bottomAnchor).isActive = true
+        detailControllerView.leadingAnchor.constraint(equalTo: detailInnerHolder.leadingAnchor).isActive = true
+        detailControllerView.trailingAnchor.constraint(equalTo: detailInnerHolder.trailingAnchor).isActive = true
+        detailInnerHolder.layoutIfNeeded()
     }
 
     func isDetailControllerAttached() -> Bool {
@@ -142,6 +150,8 @@ extension UniversalSplitController {
 
     func alignHolders() {
         guard let currentDataSource = dataSource else { return }
+        let startWidth = getLandscapeWidthOfScreen() * 2.0
+        let innerHolderWidth = isLandscape() ? calculatedLandscapeWidth : portraitScreenWidth
         if currentDataSource.direction == .trailing {
             masterHolder.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             masterHolder.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -149,13 +159,16 @@ extension UniversalSplitController {
             masterHolderLeading.isActive = true
             masterHolderTrailing = masterHolder.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             masterHolderTrailing.isActive = true
-            let startWidth = isLandscape() ? calculatedLandscapeWidth : portraitScreenWidth
-            detailHolderWidth = detailHolder.widthAnchor.constraint(equalToConstant: startWidth)
-            detailHolderWidth.isActive = true
+            detailHolder.widthAnchor.constraint(equalToConstant: startWidth).isActive = true
             detailHolder.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             detailHolder.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             detailHolderLeading = detailHolder.leadingAnchor.constraint(equalTo: masterHolder.trailingAnchor)
             detailHolderLeading.isActive = true
+            detailInnerHolderWidth = detailInnerHolder.widthAnchor.constraint(equalToConstant: innerHolderWidth)
+            detailInnerHolderWidth.isActive = true
+            detailInnerHolder.topAnchor.constraint(equalTo: detailHolder.topAnchor).isActive = true
+            detailInnerHolder.bottomAnchor.constraint(equalTo: detailHolder.bottomAnchor).isActive = true
+            detailInnerHolder.leadingAnchor.constraint(equalTo: detailHolder.leadingAnchor).isActive = true
         } else if currentDataSource.direction == .leading {
             masterHolder.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             masterHolder.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -163,13 +176,16 @@ extension UniversalSplitController {
             masterHolderLeading.isActive = true
             masterHolderTrailing = masterHolder.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             masterHolderTrailing.isActive = true
-            let startWidth = isLandscape() ? calculatedLandscapeWidth : portraitScreenWidth
-            detailHolderWidth = detailHolder.widthAnchor.constraint(equalToConstant: startWidth)
-            detailHolderWidth.isActive = true
+            detailHolder.widthAnchor.constraint(equalToConstant: startWidth).isActive = true
             detailHolder.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             detailHolder.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             detailHolderTrailing = detailHolder.trailingAnchor.constraint(equalTo: masterHolder.leadingAnchor)
             detailHolderTrailing.isActive = true
+            detailInnerHolderWidth = detailInnerHolder.widthAnchor.constraint(equalToConstant: innerHolderWidth)
+            detailInnerHolderWidth.isActive = true
+            detailInnerHolder.topAnchor.constraint(equalTo: detailHolder.topAnchor).isActive = true
+            detailInnerHolder.bottomAnchor.constraint(equalTo: detailHolder.bottomAnchor).isActive = true
+            detailInnerHolder.trailingAnchor.constraint(equalTo: detailHolder.trailingAnchor).isActive = true
         }
         view.layoutIfNeeded()
     }

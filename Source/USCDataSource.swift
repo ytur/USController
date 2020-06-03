@@ -21,6 +21,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 //
+// swiftlint:disable file_length
 
 import UIKit
 
@@ -32,7 +33,11 @@ protocol USCDataSourceProtocol {
 }
 
 public class USCDataSource {
-
+    typealias AnimationProperties = (duration: TimeInterval,
+        options: UIView.AnimationOptions,
+        forwardDampingRatio: CGFloat,
+        rewindDampingRatio: CGFloat,
+        velocity: CGFloat)
     private lazy var universalSplitController = UniversalSplitController()
     private(set) var parentController: UIViewController?
     private(set) var masterController: UIViewController?
@@ -45,15 +50,29 @@ public class USCDataSource {
     private(set) var contentBlockerBlur: UIBlurEffect.Style?
     private(set) var contentBlockerInteractions: Bool?
     private(set) var customWidthForPortrait: CGFloat?
+    private(set) var widthInPercentageForPortrait: Bool = false
     private(set) var customWidthForLandscape: CGFloat?
+    private(set) var widthInPercentageForLandscape: Bool = false
     private(set) var overlapWhileInPortrait: Bool = false
     private(set) var overlapWhileInLandscape: Bool = false
     private(set) var visibilityWillStartBlock: ((USCDetailVisibility) -> Void)?
     private(set) var visibilityAnimationBlock: ((USCDetailVisibility) -> Void)?
     private(set) var visibilityDidEndBlock: ((USCDetailVisibility) -> Void)?
     private(set) var swipeable: Bool = false
+    private(set) var detailBackgroundColor: UIColor?
+    private(set) var detailBackgroundBlur: UIBlurEffect.Style?
     private(set) var couldBeBlockedByOtherEventsIfAny: Bool = false
     private(set) var invokeAppearanceMethods: Bool = false
+    private(set) var animationPropsForPortrait = AnimationProperties(duration: 0.35,
+                                                                          options: .curveEaseInOut,
+                                                                          forwardDampingRatio: 1.0,
+                                                                          rewindDampingRatio: 1.0,
+                                                                          velocity: 1.0)
+    private(set) var animationPropsForLandscape = AnimationProperties(duration: 0.35,
+                                                                           options: .curveEaseInOut,
+                                                                           forwardDampingRatio: 1.0,
+                                                                           rewindDampingRatio: 1.0,
+                                                                           velocity: 1.0)
     /// Builder object should be initiated with `parentController` parameter
     /// to specify where the USController will append as child controller.
     ///
@@ -69,10 +88,10 @@ public class USCDataSource {
         public init(parentController: UIViewController) {
             dataSource.parentController = parentController
         }
-        /// It specifies the controller which will be place in master controller division of the screen.
+        /// It specifies the controller which will be placed in master controller division of the screen.
         ///
         /// - Parameters:
-        ///     - controller: The controller which will be place in.
+        ///     - controller: The controller which will be placed in.
         ///     - embedInNavController: If parameter takes true,
         ///     the controller embed in to the navigation controller before place in. Default value is false.
         ///
@@ -85,7 +104,7 @@ public class USCDataSource {
             dataSource.masterWillEmbedInNavController = embedInNavController
             return self
         }
-        /// It specifies the controller which will be place in master controller division of the screen.
+        /// It specifies the controller which will be placed in master controller division of the screen.
         ///
         /// - Parameters:
         ///     - storyboardName: The name of the storyboard resource file without the filename extension.
@@ -117,10 +136,10 @@ public class USCDataSource {
             dataSource.masterWillEmbedInNavController = embedInNavController
             return self
         }
-        /// It specifies the controller which will be place in detail controller division of the screen.
+        /// It specifies the controller which will be placed in detail controller division of the screen.
         ///
         /// - Parameters:
-        ///     - controller: The controller which will be place in.
+        ///     - controller: The controller which will be placed in.
         ///     - embedInNavController: If parameter takes true,
         ///     the controller embed in to the navigation controller before place in. Default value is false.
         ///
@@ -133,7 +152,7 @@ public class USCDataSource {
             dataSource.detailWillEmbedInNavController = embedInNavController
             return self
         }
-        /// It specifies the controller which will be place in detail controller division of the screen.
+        /// It specifies the controller which will be placed in detail controller division of the screen.
         ///
         /// - Parameters:
         ///     - storyboardName: The name of the storyboard resource file without the filename extension.
@@ -218,6 +237,26 @@ public class USCDataSource {
             dataSource.contentBlockerInteractions = allowInteractions
             return self
         }
+        /// It sets a background color and optionally apply a blur effect to the background of detail controller.
+        ///
+        /// - Parameters:
+        ///     - color: Custom color for detail controller background.
+        ///     - opacity: Custom opacity of detail controller background. The opacity value specified as a value f
+        ///     rom 0.0 to 1.0. Alpha values below 0.0 are interpreted as 0.0,
+        ///     and values above 1.0 are interpreted as 1.0
+        ///     - blur: The intensity of the blur effect. See UIBlurEffect.Style for valid options.
+        ///
+        /// - Returns: Builder object returns so that the next method can be called.
+        ///
+        /// - Absence of this method in builder chain won't affect the build process.
+        ///
+        public func setDetailBackground(color: UIColor,
+                                        opacity: CGFloat = 1.0,
+                                        blur: UIBlurEffect.Style? = nil) -> Builder {
+            dataSource.detailBackgroundColor = color.withAlphaComponent(opacity)
+            dataSource.detailBackgroundBlur = blur
+            return self
+        }
         /// It makes the detail controller swipeable with UI Gestures to hide or show it.
         ///
         /// - Parameters:
@@ -269,7 +308,9 @@ public class USCDataSource {
         /// It allows you to define custom width for detail controller while in portrait.
         ///
         /// - Parameters:
-        ///     - customWidth: Custom width value to define.
+        ///     - customWidth: Width or percent value to define custom width for detail while in portrait.
+        ///     - inPercentage: If parameter takes true, "customWidth" parameter will takes value
+        ///     between 0 .0 - 100.0 for defining detail width as percentage of screen width while in portrait.
         ///
         /// - Returns: Builder object returns so that the next method can be called.
         ///
@@ -284,14 +325,17 @@ public class USCDataSource {
         /// **Pads =>** If half of the screen width is smaller than 414px,
         /// it will be equal to the half of the screen width. Otherwise it will be 414px.
         ///
-        public func portraitCustomWidth(_ customWidth: CGFloat) -> Builder {
+        public func portraitCustomWidth(_ customWidth: CGFloat, inPercentage: Bool = false) -> Builder {
             dataSource.customWidthForPortrait = CGFloat(fabsf(Float(customWidth)))
+            dataSource.widthInPercentageForPortrait = inPercentage
             return self
         }
         /// It allows you to define custom width for detail controller while in landscape.
         ///
         /// - Parameters:
-        ///     - customWidth: Custom width value to define.
+        ///     - customWidth: Width or percent value to define custom width for detail while in landscape.
+        ///     - inPercentage: If parameter takes true, "customWidth" parameter will takes value
+        ///     between 0 .0 - 100.0 for defining detail width as percentage of screen width while in landscape.
         ///
         /// - Returns: Builder object returns so that the next method can be called.
         ///
@@ -315,8 +359,9 @@ public class USCDataSource {
         /// **case 2 =>**If screen width smaller than 414px while in portrait,
         /// than detail controller width will be equal to screen width while in portrait.
         ///
-        public func landscapeCustomWidth(_ customWidth: CGFloat) -> Builder {
+        public func landscapeCustomWidth(_ customWidth: CGFloat, inPercentage: Bool = false) -> Builder {
             dataSource.customWidthForLandscape = CGFloat(fabsf(Float(customWidth)))
+            dataSource.widthInPercentageForLandscape = inPercentage
             return self
         }
         /// Detail controller visibility changes can be observable by this method's closure arguments.
@@ -347,6 +392,86 @@ public class USCDataSource {
             dataSource.visibilityWillStartBlock = willStartBlock
             dataSource.visibilityAnimationBlock = animationBlock
             dataSource.visibilityDidEndBlock = didEndBlock
+            return self
+        }
+        /// Its set detail controller's toggling animation while in portrait
+        /// using a timing curve corresponding to the motion of a physical spring.
+        ///
+        /// - Parameters:
+        ///     - duration: The total duration of the animations, measured in seconds.
+        ///     If you specify a negative value or 0, the changes are made without animating them.
+        ///
+        ///     - options: A mask of options indicating how you want to perform the animations.
+        ///     For a list of valid constants, see UIView.AnimationOptions.
+        ///
+        ///     - forwardDampingRatio: The damping ratio for the spring animation while detail controller opening.
+        ///     To smoothly decelerate the animation without oscillation, use a value of 1.
+        ///     Employ a damping ratio closer to zero to increase oscillation.
+        ///     
+        ///     - rewindDampingRatio:The damping ratio for the spring animation while detail controller closing.
+        ///     To smoothly decelerate the animation without oscillation, use a value of 1.
+        ///     Employ a damping ratio closer to zero to increase oscillation.
+        ///
+        ///     - velocity: The initial spring velocity. For smooth start to the animation,
+        ///     match this value to the view’s velocity as it was prior to attachment.
+        ///     A value of 1 corresponds to the total animation distance traversed in one second.
+        ///     For example, if the total animation distance is 200 points and you want the start of the animation
+        ///     to match a view velocity of 100 pt/s, use a value of 0.5.
+        ///
+        /// - Returns: Builder object returns so that the next method can be called.
+        ///
+        /// - Absence of this method in builder chain won't affect the build process.
+        ///
+        public func portraitAnimationProperties(duration: TimeInterval,
+                                                options: UIView.AnimationOptions = .curveEaseInOut,
+                                                forwardDampingRatio: CGFloat = 1.0,
+                                                rewindDampingRatio: CGFloat = 1.0,
+                                                velocity: CGFloat = 1.0) -> Builder {
+            dataSource.animationPropsForPortrait = AnimationProperties(duration: duration,
+                                                                            options: options,
+                                                                            forwardDampingRatio: forwardDampingRatio,
+                                                                            rewindDampingRatio: rewindDampingRatio,
+                                                                            velocity: velocity)
+            return self
+        }
+        /// Its set detail controller's toggling animation while in landscape
+        /// using a timing curve corresponding to the motion of a physical spring.
+        ///
+        /// - Parameters:
+        ///     - duration: The total duration of the animations, measured in seconds.
+        ///     If you specify a negative value or 0, the changes are made without animating them.
+        ///
+        ///     - options: A mask of options indicating how you want to perform the animations.
+        ///     For a list of valid constants, see UIView.AnimationOptions.
+        ///
+        ///     - forwardDampingRatio: The damping ratio for the spring animation while detail controller opening.
+        ///     To smoothly decelerate the animation without oscillation, use a value of 1.
+        ///     Employ a damping ratio closer to zero to increase oscillation.
+        ///
+        ///     - rewindDampingRatio:The damping ratio for the spring animation while detail controller closing.
+        ///     To smoothly decelerate the animation without oscillation, use a value of 1.
+        ///     Employ a damping ratio closer to zero to increase oscillation.
+        ///
+        ///     - velocity: The initial spring velocity. For smooth start to the animation,
+        ///     match this value to the view’s velocity as it was prior to attachment.
+        ///     A value of 1 corresponds to the total animation distance traversed in one second.
+        ///     For example, if the total animation distance is 200 points and you want the start of the animation
+        ///     to match a view velocity of 100 pt/s, use a value of 0.5.
+        ///
+        /// - Returns: Builder object returns so that the next method can be called.
+        ///
+        /// - Absence of this method in builder chain won't affect the build process.
+        ///
+        public func landscapeAnimationProperties(duration: TimeInterval,
+                                                 options: UIView.AnimationOptions = .curveEaseInOut,
+                                                 forwardDampingRatio: CGFloat = 1.0,
+                                                 rewindDampingRatio: CGFloat = 1.0,
+                                                 velocity: CGFloat = 1.0) -> Builder {
+            dataSource.animationPropsForLandscape = AnimationProperties(duration: duration,
+                                                                        options: options,
+                                                                        forwardDampingRatio: forwardDampingRatio,
+                                                                        rewindDampingRatio: rewindDampingRatio,
+                                                                        velocity: velocity)
             return self
         }
         /// Once the USController is completely configured, this method must be called to construct the builder object.
