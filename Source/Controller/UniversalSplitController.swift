@@ -29,15 +29,17 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
     var dataSource: USCDataSource?
     var previousVisibility: USCDetailVisibility = .invisible
     var visibility: USCDetailVisibility = .invisible
-    var portraitScreenWidth: CGFloat = 0
-    var landscapeScreenWidth: CGFloat = 0
+    var portraitScreenWidth: CGFloat = 0.0
+    var landscapeScreenWidth: CGFloat = 0.0
+    private let defaultMaxWidth: CGFloat = 414.0
+    let defaultMinWidth: CGFloat = 100.0
     private (set) var calculatedLandscapeWidth: CGFloat {
         get {
             return landscapeScreenWidth + safeAreaAdditionForLandsacpe()
         }
         set { _ = newValue }
     }
-    var isCustomWidthSetForLandscape: Bool = false
+    var isCustomWidthSetForLandscape: CGFloat?
     var ignoreDetailAppearanceForOnce: Bool = true
     var ignoreMasterAppearanceForOnce: Bool = true
     var isMasterControllerVisible: Bool = false
@@ -62,9 +64,18 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
         return view
     }()
 
+    lazy var detailInnerHolder: UIView = {
+        let view = UIView()
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     var masterHolderLeading: NSLayoutConstraint!
     var masterHolderTrailing: NSLayoutConstraint!
-    var detailHolderWidth: NSLayoutConstraint!
+    var detailInnerHolderWidth: NSLayoutConstraint!
+    var detailHolderLeading: NSLayoutConstraint!
+    var detailHolderTrailing: NSLayoutConstraint!
 
     lazy var blocker: UIView = {
         let view = UIView()
@@ -104,13 +115,45 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
         view.clipsToBounds = true
     }
 
-    func setupInitialData() {
-        let minWidthForPortrait: CGFloat = 100.0
-        let minWidthForLandscape: CGFloat = 100.0
-        let defaultMaxWidth: CGFloat = 414.0
+    private func setupInitialData() {
+        setPortraitScreenWidth()
+        setLandscapeScreenWidth()
+    }
+
+    private func setPortraitScreenWidth() {
         let halfWidthOfPortrait: CGFloat = getPortraitWidthOfScreen() / 2.0
-        let halfWidthOfLandscape: CGFloat = getLandscapeWidthOfScreen() / 2.0
         let portraitWidthExceptPhones = halfWidthOfPortrait < defaultMaxWidth ? halfWidthOfPortrait : defaultMaxWidth
+        portraitScreenWidth = isPhone() ? getPortraitWidthOfScreen() : portraitWidthExceptPhones
+        if let currentDataSource = dataSource,
+            var customWidth = currentDataSource.customWidthForPortrait {
+            if currentDataSource.widthInPercentageForPortrait {
+                if customWidth > 100.0 {
+                    customWidth = 100.0
+                }
+                customWidth = getPortraitWidthOfScreen() * (customWidth / 100.0)
+            }
+            if currentDataSource.overlapWhileInPortrait {
+                if customWidth > getPortraitWidthOfScreen() {
+                    portraitScreenWidth = getPortraitWidthOfScreen()
+                } else if customWidth < defaultMinWidth {
+                    portraitScreenWidth = defaultMinWidth
+                } else {
+                    portraitScreenWidth = customWidth
+                }
+            } else {
+                if customWidth > halfWidthOfPortrait {
+                    portraitScreenWidth = halfWidthOfPortrait
+                } else if customWidth < defaultMinWidth {
+                    portraitScreenWidth = defaultMinWidth
+                } else {
+                    portraitScreenWidth = customWidth
+                }
+            }
+        }
+    }
+
+    private func setLandscapeScreenWidth() {
+        let halfWidthOfLandscape: CGFloat = getLandscapeWidthOfScreen() / 2.0
         var landscapeWidthForAll: CGFloat = 0.0
         if getPortraitWidthOfScreen() > halfWidthOfLandscape {
             if halfWidthOfLandscape > defaultMaxWidth {
@@ -125,29 +168,36 @@ class UniversalSplitController: UIViewController, USCDataSourceProtocol {
                 landscapeWidthForAll = getPortraitWidthOfScreen()
             }
         }
-        let portraitWidthForAll: CGFloat = isPhone() ? getPortraitWidthOfScreen() : portraitWidthExceptPhones
-        portraitScreenWidth = portraitWidthForAll
-        if let currentDataSource = dataSource,
-            let customWidth = currentDataSource.customWidthForPortrait {
-            if customWidth > halfWidthOfPortrait {
-                portraitScreenWidth = halfWidthOfPortrait
-            } else if customWidth < minWidthForPortrait {
-                portraitScreenWidth = minWidthForPortrait
-            } else {
-                portraitScreenWidth = customWidth
-            }
-        }
         landscapeScreenWidth = landscapeWidthForAll
         if let currentDataSource = dataSource,
-            let customWidth = currentDataSource.customWidthForLandscape {
-            if customWidth > halfWidthOfLandscape {
-                landscapeScreenWidth = halfWidthOfLandscape
-            } else if customWidth < minWidthForLandscape {
-                landscapeScreenWidth = minWidthForLandscape
-            } else {
-                landscapeScreenWidth = customWidth
-                isCustomWidthSetForLandscape = true
+            var customWidth = currentDataSource.customWidthForLandscape {
+            if currentDataSource.widthInPercentageForLandscape {
+                customWidth = customWidth > 100.0 ? 100.0 : customWidth
+                customWidth = getLandscapeWidthOfScreen() * (customWidth / 100.0)
             }
+            if currentDataSource.overlapWhileInLandscape {
+                if customWidth > getLandscapeWidthOfScreen() {
+                    customWidth = getLandscapeWidthOfScreen()
+                    landscapeScreenWidth = customWidth
+                } else if customWidth < defaultMinWidth {
+                    customWidth = defaultMinWidth
+                    landscapeScreenWidth = customWidth
+                } else {
+                    landscapeScreenWidth = customWidth
+                }
+            } else {
+                if customWidth > halfWidthOfLandscape {
+                    customWidth = halfWidthOfLandscape
+                    landscapeScreenWidth = customWidth
+                } else if customWidth < defaultMinWidth {
+                    customWidth = defaultMinWidth
+                    landscapeScreenWidth = customWidth
+                } else {
+                    landscapeScreenWidth = customWidth
+
+                }
+            }
+            isCustomWidthSetForLandscape = customWidth
         }
     }
 

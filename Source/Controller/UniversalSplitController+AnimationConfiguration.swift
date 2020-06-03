@@ -30,13 +30,13 @@ extension UniversalSplitController {
         guard let currentDataSource = dataSource else { return }
         if visibility == .visible {
             if currentDataSource.direction == .trailing && isLandscape() {
-                visibleTrailingLandscapeConstraints()
+                visibleTrailingLandscapeConstraints(showOnTop: currentDataSource.overlapWhileInLandscape)
             } else if currentDataSource.direction == .trailing && !isLandscape() {
-                visibleTrailingPortraitConstraints()
+                visibleTrailingPortraitConstraints(showOnTop: currentDataSource.overlapWhileInPortrait)
             } else if currentDataSource.direction == .leading && isLandscape() {
-                visibleLeadingLandscapeConstraints()
+                visibleLeadingLandscapeConstraints(showOnTop: currentDataSource.overlapWhileInLandscape)
             } else if currentDataSource.direction == .leading && !isLandscape() {
-                visibleLeadingPortraitConstraints()
+                visibleLeadingPortraitConstraints(showOnTop: currentDataSource.overlapWhileInPortrait)
             }
         } else if visibility == .invisible {
             invisiblityConstraints()
@@ -100,10 +100,15 @@ extension UniversalSplitController {
         if previousVisibility != visibility {
             triggerDetailWillVisibility(isAppearing: visibility == .visible, animated: true)
         }
-        UIView.animate(withDuration: 0.35,
-                       delay: 0.0, usingSpringWithDamping: 5.5,
-                       initialSpringVelocity: 0.1,
-                       options: .curveEaseInOut,
+        var animationProps = currentDataSource.animationPropsForPortrait
+        if isLandscape() {
+            animationProps = currentDataSource.animationPropsForLandscape
+        }
+        let damping = visibility == .visible ? animationProps.forwardDampingRatio : animationProps.rewindDampingRatio
+        UIView.animate(withDuration: animationProps.duration,
+                       delay: 0.0, usingSpringWithDamping: damping,
+                       initialSpringVelocity: animationProps.velocity,
+                       options: animationProps.options,
                        animations: { [weak self] in
                         guard let self = self else { return }
                         if currentDataSource.contentBlockerColor != nil {
@@ -136,46 +141,58 @@ extension UniversalSplitController {
         })
     }
 
-    func visibleTrailingLandscapeConstraints() {
+    func visibleTrailingLandscapeConstraints(showOnTop: Bool) {
         masterHolderLeading.constant = 0.0
-        masterHolderTrailing.constant = -calculatedLandscapeWidth
-        detailHolderWidth.constant = calculatedLandscapeWidth
+        masterHolderTrailing.constant = showOnTop ? 0.0 : -calculatedLandscapeWidth
+        detailInnerHolderWidth.constant = calculatedLandscapeWidth
+        detailHolderLeading.constant = showOnTop ? -calculatedLandscapeWidth : 0.0
     }
 
-    func visibleTrailingPortraitConstraints() {
+    func visibleTrailingPortraitConstraints(showOnTop: Bool) {
         if isPhone() && portraitScreenWidth == getPortraitWidthOfScreen() {
-            masterHolderLeading.constant = -portraitScreenWidth
-            masterHolderTrailing.constant = -portraitScreenWidth
-            detailHolderWidth.constant = portraitScreenWidth
+            masterHolderLeading.constant = showOnTop ? 0.0 : -portraitScreenWidth
+            masterHolderTrailing.constant = showOnTop ? 0.0 : -portraitScreenWidth
+            detailInnerHolderWidth.constant = portraitScreenWidth
+            detailHolderLeading.constant = showOnTop ? -portraitScreenWidth : 0.0
         } else {
             masterHolderLeading.constant = 0.0
-            masterHolderTrailing.constant = -portraitScreenWidth
-            detailHolderWidth.constant = portraitScreenWidth
+            masterHolderTrailing.constant = showOnTop ? 0.0 : -portraitScreenWidth
+            detailInnerHolderWidth.constant = portraitScreenWidth
+            detailHolderLeading.constant = showOnTop ? -portraitScreenWidth : 0.0
         }
     }
 
-    func visibleLeadingLandscapeConstraints() {
-        masterHolderLeading.constant = calculatedLandscapeWidth
+    func visibleLeadingLandscapeConstraints(showOnTop: Bool) {
+        masterHolderLeading.constant = showOnTop ? 0.0 : calculatedLandscapeWidth
         masterHolderTrailing.constant = 0.0
-        detailHolderWidth.constant = calculatedLandscapeWidth
+        detailInnerHolderWidth.constant = calculatedLandscapeWidth
+        detailHolderTrailing.constant = showOnTop ? calculatedLandscapeWidth : 0.0
     }
 
-    func visibleLeadingPortraitConstraints() {
+    func visibleLeadingPortraitConstraints(showOnTop: Bool) {
         if isPhone() && portraitScreenWidth == getPortraitWidthOfScreen() {
-            masterHolderLeading.constant = portraitScreenWidth
-            masterHolderTrailing.constant = portraitScreenWidth
-            detailHolderWidth.constant = portraitScreenWidth
+            masterHolderLeading.constant = showOnTop ? 0.0 : portraitScreenWidth
+            masterHolderTrailing.constant = showOnTop ? 0.0 : portraitScreenWidth
+            detailInnerHolderWidth.constant = portraitScreenWidth
+            detailHolderTrailing.constant = showOnTop ? portraitScreenWidth : 0.0
         } else {
-            masterHolderLeading.constant = portraitScreenWidth
+            masterHolderLeading.constant = showOnTop ? 0.0 : portraitScreenWidth
             masterHolderTrailing.constant = 0.0
-            detailHolderWidth.constant = portraitScreenWidth
+            detailInnerHolderWidth.constant = portraitScreenWidth
+            detailHolderTrailing.constant = showOnTop ? portraitScreenWidth : 0.0
         }
     }
 
     func invisiblityConstraints() {
         masterHolderLeading.constant = 0.0
         masterHolderTrailing.constant = 0.0
-        detailHolderWidth.constant = isLandscape() ? calculatedLandscapeWidth : portraitScreenWidth
+        detailInnerHolderWidth.constant = isLandscape() ? calculatedLandscapeWidth : portraitScreenWidth
+        guard let currentDataSource = dataSource else { return }
+        if currentDataSource.direction == .trailing {
+            detailHolderLeading.constant = 0.0
+        } else if currentDataSource.direction == .leading {
+            detailHolderTrailing.constant = 0.0
+        }
     }
 
 }

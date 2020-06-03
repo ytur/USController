@@ -99,39 +99,28 @@ extension UniversalSplitController: UIGestureRecognizerDelegate {
     func swipeBeganLogic(point: CGFloat) {
         guard let currentDataSource = dataSource else { return }
         let viewWidth = view.bounds.size.width
-        let swipeAreaWidth = isLandscape() ? calculatedLandscapeWidth : portraitScreenWidth
-        var startTolerance: CGFloat = visibility == .visible ? swipeAreaWidth < viewWidth ? 50.0 : 60.0 : 60.0
+        let swipeWidth = isLandscape() ? calculatedLandscapeWidth : portraitScreenWidth
+        var limit: CGFloat = visibility == .visible ? swipeWidth < viewWidth ? 50.0 : 60.0 : 60.0
         isHorizontalSwipeOccurred = .locked
-        var diff = viewWidth - swipeAreaWidth
-        diff = diff < 0.0 ? 0.0 : diff
+        let diff: CGFloat = (viewWidth - swipeWidth) < 0.0 ? 0.0 : (viewWidth - swipeWidth)
+        let screenWidth = isLandscape() ? getLandscapeWidthOfScreen() : getPortraitWidthOfScreen()
         if currentDataSource.direction == .trailing {
-            startTolerance += getSafeAreaInsets().right
-            if point <= viewWidth && point >= viewWidth - startTolerance {
+            limit += getSafeAreaInsets().right
+            if point >= viewWidth - limit && point <= viewWidth {
                 isHorizontalSwipeOccurred = .trailingOpeningSequence
-            } else if point >= diff - startTolerance &&
-                (!isLandscape() &&
-                    swipeAreaWidth == getPortraitWidthOfScreen() && point <= diff + startTolerance) {
-                isHorizontalSwipeOccurred = .trailingClosingSequence
-            } else if point >= diff - (startTolerance * 2.0) &&
-                ((!isLandscape() &&
-                    swipeAreaWidth != getPortraitWidthOfScreen() && point <= diff) ||
-                    (isLandscape() &&
-                        swipeAreaWidth != getLandscapeWidthOfScreen() && point <= diff)) {
+            } else if (swipeWidth == screenWidth && point >= diff && point <= limit) ||
+                (swipeWidth != screenWidth && diff - limit >= 0.0 && point >= diff - (limit * 2.0) && point <= diff) ||
+                (swipeWidth != screenWidth && diff - limit < 0.0 && point >= 0.0 && point <= limit) {
                 isHorizontalSwipeOccurred = .trailingClosingSequence
             }
         } else if currentDataSource.direction == .leading {
-            startTolerance += getSafeAreaInsets().left
-            if point >= 0.0 && point <= startTolerance {
+            limit += getSafeAreaInsets().left
+            if point >= 0.0 && point <= limit {
                 isHorizontalSwipeOccurred = .leadingOpeningSequence
-            } else if point <= swipeAreaWidth + startTolerance &&
-                (!isLandscape() &&
-                    swipeAreaWidth == getPortraitWidthOfScreen() && point >= swipeAreaWidth - startTolerance) {
-                isHorizontalSwipeOccurred = .leadingClosingSequence
-            } else if point <= swipeAreaWidth + (startTolerance * 2.0) &&
-                ((!isLandscape() &&
-                    swipeAreaWidth != getPortraitWidthOfScreen() && point >= swipeAreaWidth) ||
-                (isLandscape() &&
-                    swipeAreaWidth != getLandscapeWidthOfScreen() && point >= swipeAreaWidth)) {
+            } else if (swipeWidth == screenWidth && point >= viewWidth - limit && point <= viewWidth) ||
+                (swipeWidth != screenWidth && diff - limit >= 0.0 && point >= swipeWidth &&
+                    point <= swipeWidth + (limit * 2.0)) ||
+                (swipeWidth != screenWidth && diff - limit < 0.0 && point >= viewWidth - limit && point <= viewWidth) {
                 isHorizontalSwipeOccurred = .leadingClosingSequence
             }
         }

@@ -82,7 +82,11 @@ class ParrotDetailController: UIViewController {
         trailingConstraint.priority = UILayoutPriority(rawValue: 998)
         trailingConstraint.isActive = true
         view.layoutIfNeeded()
-
+        if let parrot = viewModel.selectedParrot,
+            let parrotData = parrot.data {
+            self.title = parrot.name
+            self.parrotViewer.image = UIImage.gifImageWithData(parrotData)
+        }
         viewModel.parrotDetailUpdater = { [weak self] parrot in
             guard let self = self,
                 let parrotData = parrot.data else { return }
@@ -100,8 +104,8 @@ class ParrotDetailController: UIViewController {
     }
 
     @objc func barButtonAction() {
-        guard let parrotSelectionToggleHandler = viewModel.parrotSelectionToggleHandler else { return }
-        parrotSelectionToggleHandler()
+        guard let barButtonActionHandler = viewModel.barButtonActionHandler else { return }
+        barButtonActionHandler()
     }
 
 }

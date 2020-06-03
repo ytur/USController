@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3839DABD24830F5C001C8C21 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839DABC24830F5C001C8C21 /* UIView+Extensions.swift */; };
 		38996725247C3598009C37FC /* USController.h in Headers */ = {isa = PBXBuildFile; fileRef = 38996723247C3598009C37FC /* USController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3899672E247C38DF009C37FC /* USCEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899672C247C38DF009C37FC /* USCEnums.swift */; };
 		3899672F247C38DF009C37FC /* USCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899672D247C38DF009C37FC /* USCDataSource.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3839DABC24830F5C001C8C21 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		38996720247C3598009C37FC /* USController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = USController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38996723247C3598009C37FC /* USController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USController.h; sourceTree = "<group>"; };
 		38996724247C3598009C37FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3839DABB24830F3A001C8C21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3839DABC24830F5C001C8C21 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		38996716247C3598009C37FC = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		3899673C247C391B009C37FC /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3839DABB24830F3A001C8C21 /* Extensions */,
 				3899672D247C38DF009C37FC /* USCDataSource.swift */,
 				3899672C247C38DF009C37FC /* USCEnums.swift */,
 				38996730247C38E9009C37FC /* Controller */,
@@ -217,6 +228,7 @@
 				38996736247C38FA009C37FC /* UniversalSplitController+UIConfiguration.swift in Sources */,
 				3899672F247C38DF009C37FC /* USCDataSource.swift in Sources */,
 				3899672E247C38DF009C37FC /* USCEnums.swift in Sources */,
+				3839DABD24830F5C001C8C21 /* UIView+Extensions.swift in Sources */,
 				3899673A247C38FA009C37FC /* UniversalSplitController+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +374,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasinturkoglu.USController;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -391,7 +403,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasinturkoglu.USController;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

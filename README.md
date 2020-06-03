@@ -9,10 +9,15 @@ More customizable <b>U</b>niversal <b>S</b>plit <b>Controller</b> for IOS device
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
+
+<b>USController</b>, aims to display two controllers simultaneously with much simpler and customizable ways than <b>UISplitViewController</b>.
+
 ## Example
 ### Download Example party-parrot project from repo to poke around.<br/>
-![iPhone-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone.gif)
-![iPad-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPad.gif)
+![iPhone-split-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone-split.gif)
+![iPad-split-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPad-split.gif)
+![iPhone-overlap-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPhone-overlap.gif)
+![iPad-overlap-example](http://forum.yasinturkoglu.com/uploads/USController/USController-iPad-overlap.gif)
 
 ## Requirements
 
@@ -35,7 +40,7 @@ pod 'USController'
 
 You can use Carthage to install USController by adding it to your Cartfile:
 ```ruby
-github "ytur/USController" "master"
+github "ytur/USController"
 ```
 If you use Carthage to build your dependencies, make sure you have added USController.framework to the "Linked Frameworks and Libraries" section of your target, and have included them in your Carthage framework copying build phase.
 
@@ -51,7 +56,7 @@ import PackageDescription
 let package = Package(
     name: "YOUR_PROJECT_NAME",
     dependencies: [
-        .package(url: "https://github.com/ytur/USController.git", from: "1.0.1"),
+        .package(url: "https://github.com/ytur/USController.git", from: "1.1.0"),
     ]
 )
 ```
@@ -82,6 +87,8 @@ let dataSource = USCDataSource.Builder(parentController: self)
                   .showBlockerOnMaster(color: .black, opacity: 0.1, allowInteractions: true)
                   .swipeable()
                   .invokeAppearanceMethods()
+                  .portraitAnimationProperties(duration: 0.35, forwardDampingRatio: 0.5)
+                  .landscapeAnimationProperties(duration: 0.35, forwardDampingRatio: 0.5)
                   .portraitCustomWidth(100.0)
                   .landscapeCustomWidth(100.0)
                   .visibilityChangesListener(willStartBlock: { (targetVisibility) in

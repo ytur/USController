@@ -11,6 +11,14 @@ import UIKit
 class ParrotSelectionController: UIViewController {
 
     private var viewModel: ParrotSelectionViewModel!
+    lazy var leftBarButton: UIBarButtonItem = { [weak self] in
+        let barButton = UIBarButtonItem(image: nil,
+        style: .done,
+        target: self,
+        action: #selector(self?.barButtonAction))
+        navigationItem.leftBarButtonItem = barButton
+        return barButton
+    }()
 
     init(viewModel: ParrotSelectionViewModel) {
         super.init(nibName: nil, bundle: nil)
@@ -23,6 +31,7 @@ class ParrotSelectionController: UIViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.backgroundColor = .clear
         tableView.register(ParrotSelectionTableViewCell.self, forCellReuseIdentifier: "parrotCell")
         tableView.separatorInset = .zero
         tableView.separatorStyle = .singleLine
@@ -35,7 +44,7 @@ class ParrotSelectionController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         title = "parrots"
     }
 
@@ -74,6 +83,11 @@ class ParrotSelectionController: UIViewController {
         }
     }
 
+    @objc func barButtonAction() {
+        guard let barButtonActionHandler = viewModel.barButtonActionHandler else { return }
+        barButtonActionHandler()
+    }
+
 }
 
 extension ParrotSelectionController: UITableViewDelegate, UITableViewDataSource {
@@ -108,6 +122,7 @@ extension ParrotSelectionController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let parrotSelectionHandler = viewModel.parrotSelectionHandler {
             parrotSelectionHandler(viewModel.parrots[indexPath.row])
+            barButtonAction()
         }
     }
 

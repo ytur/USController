@@ -142,6 +142,11 @@
 		38996869247C618B009C37FC /* headbangingparrot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 389967F0247C618A009C37FC /* headbangingparrot.gif */; };
 		38996875247C69B6009C37FC /* USController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38996873247C699B009C37FC /* USController.framework */; };
 		38996876247C69B6009C37FC /* USController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38996873247C699B009C37FC /* USController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38F7C722248646CE00F29E79 /* SplitTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C721248646CE00F29E79 /* SplitTestController.swift */; };
+		38F7C7252486492E00F29E79 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C7242486492E00F29E79 /* CustomButton.swift */; };
+		38F7C7272486498F00F29E79 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C7262486498F00F29E79 /* UIView+Extension.swift */; };
+		38F7C72924864A4A00F29E79 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C72824864A4A00F29E79 /* UIColor+Extension.swift */; };
+		38F7C72C2486963200F29E79 /* OverlapTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C72B2486963200F29E79 /* OverlapTestController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,6 +317,11 @@
 		389967EF247C618A009C37FC /* pingpongparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pingpongparrot.gif; sourceTree = "<group>"; };
 		389967F0247C618A009C37FC /* headbangingparrot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = headbangingparrot.gif; sourceTree = "<group>"; };
 		3899686E247C699A009C37FC /* USController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = USController.xcodeproj; path = ../USController.xcodeproj; sourceTree = "<group>"; };
+		38F7C721248646CE00F29E79 /* SplitTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTestController.swift; sourceTree = "<group>"; };
+		38F7C7242486492E00F29E79 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		38F7C7262486498F00F29E79 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		38F7C72824864A4A00F29E79 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		38F7C72B2486963200F29E79 /* OverlapTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlapTestController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,10 +358,11 @@
 			children = (
 				38996749247C5EEB009C37FC /* AppDelegate.swift */,
 				3899674D247C5EEB009C37FC /* ViewController.swift */,
-				38996760247C5F93009C37FC /* Scenes */,
-				38996761247C5F99009C37FC /* Storyboards */,
 				38996762247C5FA2009C37FC /* Extensions */,
 				38996763247C5FAD009C37FC /* Resources */,
+				38996760247C5F93009C37FC /* Scenes */,
+				38996761247C5F99009C37FC /* Storyboards */,
+				38F7C7232486491100F29E79 /* UIComp */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -359,6 +370,7 @@
 		38996760247C5F93009C37FC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				38F7C7202486467F00F29E79 /* MainControllers */,
 				38996767247C6022009C37FC /* Model */,
 				38996768247C602B009C37FC /* ParrotDetailScene */,
 				38996769247C6032009C37FC /* ParrotSelectionScene */,
@@ -379,6 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				38996765247C6008009C37FC /* UIImage+Extension.swift */,
+				38F7C7262486498F00F29E79 /* UIView+Extension.swift */,
+				38F7C72824864A4A00F29E79 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -562,6 +576,23 @@
 				38996873247C699B009C37FC /* USController.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		38F7C7202486467F00F29E79 /* MainControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38F7C721248646CE00F29E79 /* SplitTestController.swift */,
+				38F7C72B2486963200F29E79 /* OverlapTestController.swift */,
+			);
+			path = MainControllers;
+			sourceTree = "<group>";
+		};
+		38F7C7232486491100F29E79 /* UIComp */ = {
+			isa = PBXGroup;
+			children = (
+				38F7C7242486492E00F29E79 /* CustomButton.swift */,
+			);
+			path = UIComp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -797,12 +828,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				38996766247C6008009C37FC /* UIImage+Extension.swift in Sources */,
+				38F7C72C2486963200F29E79 /* OverlapTestController.swift in Sources */,
 				3899676B247C604F009C37FC /* ParrotModel.swift in Sources */,
+				38F7C722248646CE00F29E79 /* SplitTestController.swift in Sources */,
 				3899674E247C5EEB009C37FC /* ViewController.swift in Sources */,
 				38996774247C607B009C37FC /* ParrotSelectionViewModel.swift in Sources */,
 				3899676F247C6065009C37FC /* ParrotDetailViewModel.swift in Sources */,
+				38F7C7272486498F00F29E79 /* UIView+Extension.swift in Sources */,
 				38996776247C6082009C37FC /* ParrotSelectionTableViewCell.swift in Sources */,
+				38F7C7252486492E00F29E79 /* CustomButton.swift in Sources */,
 				3899676E247C6065009C37FC /* ParrotDetailController.swift in Sources */,
+				38F7C72924864A4A00F29E79 /* UIColor+Extension.swift in Sources */,
 				3899674A247C5EEB009C37FC /* AppDelegate.swift in Sources */,
 				38996773247C607B009C37FC /* ParrotSelectionController.swift in Sources */,
 			);
@@ -964,6 +1000,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasinturkoglu.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -983,6 +1020,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasinturkoglu.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
